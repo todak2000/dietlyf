@@ -1,0 +1,88 @@
+html, body{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	/* overflow-x: hidden;
+	overflow-y: hidden; */
+	font-family: 'Fira Sans', sans-serif;
+}
+div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, .row, .col-md-4, .col-md-3, .col-md-1, .col-md-6, .col-xs-6, .col-xs-12 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    text-align: center;
+}
+.pd{
+    padding-left:2px;
+    padding-right: 2px;
+}
+.container{
+    background: -webkit-linear-gradient( #1C304E, #365899, #1C304E);
+    /* background-color: #1e90ff; */
+    width: 100%;
+    height: 100vh;
+    color:#fff;
+}
+.bar, .content{
+    background-color: transparent;
+    border:0;
+    
+}
+.bar{
+    padding:0% 5% 0% 5%;
+}
+
+.fa-arrow-left{
+    color:#fff;
+    font-size:30px;
+    margin-left:-15px;
+}
+.head{
+    /* font-size:30px; */
+    font-weight: 1000;
+}
+.fifty { background:rgba(97, 29, 97, 0.5) }
+.ninty {  background:rgba(25,20,25,.9) }
+.inp {
+	 
+    border-radius: 10px;
+    padding: 10px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(255,255,255,0.1);
+    height: 40px;
+    font-size: 17px;
+    margin-top: 5px;
+}
+input[type='submit']{
+	    /* padding: 10px 25px 8px 20px; */
+        color: #024978;
+        background-color: #fff;
+        text-shadow: rgba(0,0,0,0.24) 0 1px 0;
+        font-size: 18px;
+        font-weight: bold;
+        height: 45px;
+        box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset, #fff0 0 1px 0 0;
+        border-radius: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        margin-bottom: 20px;
+}
+/* input[type='submit']:hover {
+	background-color: transparent;
+} */

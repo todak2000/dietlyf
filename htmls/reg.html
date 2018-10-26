@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dietlyf Registration </title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="css/reg.css">
+    <!-- Include the compiled Ratchet JS -->
+    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+  </head>
+  <body class="container" style="overflow-y: hidden;">
+    <?php
+			require('auth/jive_db.php');
+		    // If form submitted, insert values into the database.
+		    if (isset($_REQUEST['username'])){
+				$username = stripslashes($_REQUEST['username']); // removes backslashes
+				$username = mysqli_real_escape_string($con,$username); //escapes special characters in a string
+
+				$firstname = stripslashes($_REQUEST['firstname']);
+				$firstname = mysqli_real_escape_string($con,$firstname);
+
+				$lastname = stripslashes($_REQUEST['lastname']);
+				$lastname = mysqli_real_escape_string($con,$lastname);
+
+				$email = stripslashes($_REQUEST['email']);
+				$email = mysqli_real_escape_string($con,$email);
+
+				$phoneno = stripslashes($_REQUEST['phoneno']);
+				$phoneno = mysqli_real_escape_string($con,$phoneno);
+
+				$birthday = stripslashes($_REQUEST['birthday']);
+				$birthday = mysqli_real_escape_string($con,$birthday);
+
+				$password = stripslashes($_REQUEST['password']);
+				$password = mysqli_real_escape_string($con,$password);
+
+				$gender = stripslashes($_REQUEST['gender']);
+				$gender = mysqli_real_escape_string($con,$gender);
+
+		        $query = "INSERT into `jiveUser` (userName,firstName,lastName,phoneNo,email,password,birthday,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$birthday', '$gender')";
+				$result = mysqli_query($con,$query);
+		        if($result){
+		            echo "<div align='center' class='form' style='margin-top: 0;color:#ccc; width: 400px;position:fixed; top: 30%; left: 35%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>You are registered successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
+
+		        }
+		    }else{
+		?>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+      <header class="bar bar-nav">
+        <button class="btn btn-link btn-nav pull-left">
+          <span class="fa fa-arrow-left"></span></button>
+      </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div style="margin-bottom: 20px;"><h3 align="center" class="head">Hi, <br> Sign up with Jive</h3></div>
+      <form name="registration" action="" method="post">
+        <div class="row">
+            <div class="col-xs-12"><input type="text" name="username" placeholder="User Name" required class="form-control inp"/></div>
+            <div class="col-xs-12"><input type="email" name="email" placeholder="Email Address" required class="form-control inp"/></div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xs-6 pd"><input type="text" name="firstname" placeholder="Firstname" required class="form-control inp"/></div>
+            <div class="col-xs-6 pd"><input type="text" name="lastname" placeholder="Lastname" required class="form-control inp"/></div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6 pd"><input type="tel" name="phoneno" placeholder="Phone Number" required class="form-control inp"/></div>
+            <div class="col-xs-6 pd"><input type="date" name="birthday" placeholder="Date of Birth" required class="form-control inp"/></div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xs-12"><input type="password" name="password" placeholder="Password" required class="form-control inp"/></div>
+            <div class="col-xs-12">
+                <div class="row" style="margin-top:10px;">
+                        <div class="col-xs-6"><input type="radio" name="gender" value="M"> Male</div>
+                        <div class="col-xs-6"> <input type="radio" name="gender" value="F"> Female</div>
+                </div>
+            </div>
+          </div>
+          
+          
+       <input type="submit" name="submit" value="Register" class="form-control"/> 
+        </form>
+        <p>Already a Member, Please <a style='color:#979b1b;' href='login.html'>Login</a></p>
+    </div>
+
+  </body>
+</html>

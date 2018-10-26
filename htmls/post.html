@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jive Profile </title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="ratchet/css/ratchet.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="css/feed.css">
+        <script>
+        // OVERLAY FUNCTIONS
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay").style.width = "100%";
+            // document.getElementById("home").style.display = "none";
+            // document.getElementById("home").style.width = "0";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay").style.width = "0";
+            // document.getElementById("home").style.display = "block";
+            // document.getElementById("home").style.width = "100%";
+}
+
+        </script>
+    
+  </head>
+  <body class="container">
+    
+    <!-- header consisting of the icons and z-indexed -->
+      <header class="bar bar-nav" style="z-index: 12;  border-bottom: 1px solid #ccc;">
+        <div class="row">
+          <div class="col-xs-4">
+            <button class="btn btn-link btn-nav pull-left">
+              <span class="fa fa-times"></span>
+            </button></div>
+          <div class="col-xs-4" style="padding-top:10px; font-weight: bolder; color:#000;"><span class="pull-center">Post Story</span></div>
+          <div class="col-xs-4" style="padding-top:10px;"><span class=" pull-right"><a href="#" style="color: #000;  font-size:12px;">Next</a></span></button></div>
+        </div>
+      </header>
+
+    <!-- header ended -->
+    <div class="body" style="margin-top:10%; margin-bottom:110px;">
+        <!-- TYPE POST DIV -->
+        <div class="pics" style="height: 35vh; background-color: #fff;">
+          <textarea style="width: 100%; height:35vh; background-color:transparent; padding:10px 0 0 10px; border:0;" placeholder="Choose a Story and Share your thoughts"></textarea>  
+        </div>
+        <!-- TYPE POST DIV ENDS -->
+        <div class="fols" style="height: auto; padding:5px;">
+            <div class="search">
+                <div class="flex-row">
+                  <i class="fa fa-search"></i>
+                    <input type="email" name="email" placeholder=" Search" required class="form-control" style="background-color: transparent; border: none; color: #000;" />
+                      <i class="fa fa-microphone"></i>
+                </div>
+            </div>
+          <!-- CLIPBORAD DIV -->
+          <div class="clipboard" style="height: auto;">
+              <h2 style="padding: 10px; font-weight: bolder;">FROM YOUR CLIPBORAD</h2>
+                <!-- clip one -->
+                <div class="clip" style="height: 150px; padding:10px; background-color: #fff; border-radius: 5px; margin:5px 10px;">
+                    <div class="row">
+                        <div class="col-xs-5" style="height: 130px;;border-radius: 5px;background-color: darkmagenta;"></div>
+                        <div class="col-xs-7" style="height: 130px; padding:10px; ">
+                                <h2 style=" font-weight: bolder;">ALIKO DANGOTE</h2>
+                                <p style="font-size: 10px; line-height: 11px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima impedit, quibusdam magni animi, deserunt ipsa illum delectus, qui repellendus vero natus corrupti accusantium doloremque sequi excepturi tenetur ipsum? Hic, debitis!</p>
+                        </div>
+                    </div> 
+                </div>
+                <!-- end of clip one -->
+          </div>
+          <!-- END OF CLIPBOARD DIV -->
+          <!-- SUGGESTION DIV -->
+          <div class="sug" style="height: auto;">
+                <h2 style="padding: 10px; font-weight: bolder;">SUGGESTED STORIES</h2>
+                  <!-- sug one -->
+                  <div class="clip" style="height: 150px; padding:10px; background-color: #fff; border-radius: 5px; margin:5px 10px;">
+                      <div class="row">
+                          <div class="col-xs-5" style="height: 130px;;border-radius: 5px;background-color: aquamarine;"></div>
+                          <div class="col-xs-7" style="height: 130px; padding:10px; ">
+                                  <h2 style=" font-weight: bolder;">DAVIDO</h2>
+                                  <p style="font-size: 10px; line-height: 11px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima impedit, quibusdam magni animi, deserunt ipsa illum delectus, qui repellendus vero natus corrupti accusantium doloremque sequi excepturi tenetur ipsum? Hic, debitis!</p>
+                          </div>
+                      </div> 
+                  </div>
+                  <!-- end of sug one -->
+                  <!-- sug two -->
+                  <div class="clip" style="height: 150px; padding:10px; background-color: #fff; border-radius: 5px; margin:5px 10px;">
+                        <div class="row">
+                            <div class="col-xs-5" style="height: 130px;;border-radius: 5px;background-color: darkmagenta;"></div>
+                            <div class="col-xs-7" style="height: 130px; padding:10px; ">
+                                    <h2 style=" font-weight: bolder;">BUHARI AND ATIKU</h2>
+                                    <p style="font-size: 10px; line-height: 11px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima impedit, quibusdam magni animi, deserunt ipsa illum delectus, qui repellendus vero natus corrupti accusantium doloremque sequi excepturi tenetur ipsum? Hic, debitis!</p>
+                            </div>
+                        </div> 
+                    </div>
+                    <!-- end of sug two -->
+                    <!-- sug three -->
+                  <div class="clip" style="height: 150px; padding:10px; background-color: #fff; border-radius: 5px; margin:5px 10px;">
+                        <div class="row">
+                            <div class="col-xs-5" style="height: 130px;;border-radius: 5px;background-color: aquamarine;"></div>
+                            <div class="col-xs-7" style="height: 130px; padding:10px; ">
+                                    <h2 style=" font-weight: bolder;">TECHNOLOGY</h2>
+                                    <p style="font-size: 10px; line-height: 11px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima impedit, quibusdam magni animi, deserunt ipsa illum delectus, qui repellendus vero natus corrupti accusantium doloremque sequi excepturi tenetur ipsum? Hic, debitis!</p>
+                            </div>
+                        </div> 
+                    </div>
+                    <!-- end of sug three -->
+            </div>
+        </div>
+    </div>
+  </div>
+    <nav class="bar bar-tab">
+  <a class="tab-item " href="feed.html">
+    <span class="icon icon-pages"></span>
+    <span class="tab-label">My feeds</span>
+  </a>
+  <a class="tab-item " href="explore.html">
+    <span class="icon icon-share"></span>
+    <span class="tab-label">Discover</span>
+  </a>
+  <a style="width: 2px; height: 1px; border: 1px solid #fff;border-radius: 10px;" class="tab-item plus active" href="post.html">
+    <span class="icon icon-plus"></span>
+    <span class="tab-label"></span>
+  </a>
+  <a class="tab-item " href="follow.html">
+    <span class="icon icon-star"></span>
+    <span class="tab-label">Following</span>
+  </a>
+  <a class="tab-item" href="profile.html">
+    <span class="icon icon-person"></span>
+    <span class="tab-label">Profile</span>
+  </a>
+</nav>
+      
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- <script type="text/javascript" src="js/fontawesome-all.js"></script> -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- Include the compiled Ratchet JS -->
+    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+  </body>
+</html>

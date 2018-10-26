@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+html, body{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.container{
+    width: 100%;
+    overflow-y: auto;
+    color:#fff;
+}
+
+div, span, applet, object, iframe, h2, h3, h4, h5, h6, blockquote, pre,
+ abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, img .row, .col-md-4, .col-md-3, .col-md-1, .col-md-6, .col-md-7, .col-md-9, .col-xs-6{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+    text-align: center;
+}
+.click{
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 14px;
+	margin-top: 4px;
+}
+.flex-row{
+	display: flex;
+	-webkit-display:flex;
+	justify-content: space-between;
+	width: 100%;
+	align-content: center;
+
+}
+.flex-row i{
+
+}
+.click1{
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	margin-top: 2px;
+}
+
+.follows{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 18px;
+	margin-top: 10px;
+	color: #000;
+}
+
+.search{
+	padding: 0 15px;
+	border: 2px solid #fff;
+	background-color: #f0f0f0;
+	height: 44px;
+	border-radius: 15px;
+}
+.fa-search{
+	color: #000;
+	padding-top: 10px;
+}
+.fa-microphone{
+	color: #000;
+	padding-top: 10px;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.icon-left-nav{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.form-control{
+    font-size: 17px;
+    background-color: transparent;
+}
+
+.bar-tab{
+	background-color: #000;
+	padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+}
+.tab-item{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: #fff;
+}
+
+/*.plus{
+	width: 2px;
+	border: 1px solid #fff;
+	border-radius: 10px;
+}*/
+
+.images{
+	padding: 2px;
+}
+.images img{
+	width: 180px;
+	height: 200px;
+	border-radius: 15px;
+
+}
+.discription{
+	position: absolute;
+	top: 70%;
+	text-align: left;
+	padding: 10px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.imports{
+	font-size: 16px;
+	font-weight: bolder;
+	color: #000;
+}
+
+.imports1{
+	font-size: 12px;
+	color: #000;
+}
+
+.closebtn{
+    margin-left: 15px;
+    color: #000;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover{
+    color: red;
+}
+.closebtn1{
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn{
+	border-radius: 15px; 
+	line-height: 0;
+	color: #fff;
+	background-color: #01397A;
+	width: 120px;
+	height: 25px;
+	font-size: 14px;
+}
+.active{
+	color: blue;
+}
+
+.finds{
+	border-bottom: 1px solid #ccc;
+}
+
+.ff{
+	border-bottom: 1px solid #ccc;
+}

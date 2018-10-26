@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jive Profile </title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="ratchet/css/ratchet.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="css/feed.css">
+        <script>
+        // OVERLAY FUNCTIONS
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay").style.width = "100%";
+            // document.getElementById("home").style.display = "none";
+            // document.getElementById("home").style.width = "0";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay").style.width = "0";
+            // document.getElementById("home").style.display = "block";
+            // document.getElementById("home").style.width = "100%";
+}
+
+        </script>
+    
+  </head>
+  <body class="container">
+    
+    <header class="bar bar-nav" style="z-index: 12; background-color: #ccc;" id="head">
+        <div class="row">
+          <div class="col-xs-5">
+            </div>
+          <div class="col-xs-4" style="padding-top:10px; font-weight: bolder;"><span class="pull-center">Profile</span></div>
+          <div class="col-xs-3" style="padding-top:5px;"></button></div>
+        </div>
+      </header>
+    <!-- header ended -->
+    <div class="body">
+        <div class="pics" style="height: 50vh; background-color: #fff;">
+            <div style="height: 30vh;  width:70%; float: left; ">
+                <div style="height: 150px; padding:60px 5px 0 15px; width: 150px; border-radius:50%; color:#ccc;"><i class="fa fa-user-circle" style="font-size: 100px;"></i></div>
+                <i class="fa fa-pencil-square" style="position: absolute; top:20%; left:8%; font-size: 20px; color:#232323;"></i>
+            
+                <div class="row">
+                            
+                    <a class="btn" href="edit.html" style="position: absolute; top:15%; left:40%; width: 200px;">
+                        Edit Profile
+                    </a>     
+                </div>
+
+
+
+                <div class="write" style="padding:40px 5px 0 15px;">
+                        <h4 style="font-weight: 1000;">Boss Man</h4>
+                        <p>iVO Thinking Limited</p>
+                        <p>08012345678</p>
+                        <p>Born in 1921</p>
+                        <p><a href="#">www.jiveapp.com</a></p>
+                    </div>
+
+            </div>
+            <div style="height: 20vh; width:30%; float: right; padding: 50px 10px 0 0;">
+                    <div style="font-size: 25px; text-align: right; color:#ccc;"><a href="find.html"><i class="fa fa-user-plus"></i></a>
+                        <!-- <i class="fa fa-cog"></i> -->
+                    </div>
+                    
+            </div>
+        </div>
+        <div class="fols" style="height: auto;">
+                <div class="segmented-control">
+                        <a class="control-item active" href="#item1mobile">
+                                <i class="fa fa-th-large"></i>  Gallery
+                        </a>
+                        <a class="control-item" href="#item2mobile">
+                                <i class="fa fa-thumbs-o-up"></i>  Likes
+                        </a>
+                        <a class="control-item" href="#item3mobile">
+                                <i class="fa fa-users"></i>  Friends
+                        </a>
+                      </div>
+                      <div class="card" style=" margin-bottom:13vh;border-radius: 0; background-color: rgba(255, 255, 255, 0.23); border:0;">
+                        <span id="item1mobile" class="control-content active" >
+                            <div class="row">
+                                <div class="col-xs-4" style="background-color: peru; height:100px;"></div>
+                                <div class="col-xs-4" style="background-color: white; height:100px;"></div>
+                                <div class="col-xs-4" style="background-color: red; height:100px;"></div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-xs-4" style="background-color: brown; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: fuchsia; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: skyblue; height:100px;"></div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-xs-4" style="background-color: brown; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: fuchsia; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: skyblue; height:100px;"></div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-xs-4" style="background-color: peru; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: white; height:100px;"></div>
+                                    <div class="col-xs-4" style="background-color: red; height:100px;"></div>
+                                </div>
+                    </span>
+                        <span id="item2mobile" class="control-content" style="height: auto">The Stories you like will appear here for you</span>
+                        <span id="item3mobile" class="control-content">
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Ebenezer</span><br><br>
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Moses</span><br><br>
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Nkechi</span><br><br>
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Tuface</span><br><br>
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Uchbillion</span><br><br>
+                            <span class="icon icon-person"></span>
+                            <span class="tab-label">Kehinde</span>
+                        </span>
+                      </div>
+        </div>
+    </div>
+  </div>
+    <nav class="bar bar-tab">
+  <a class="tab-item " href="feed.html">
+    <span class="icon icon-pages"></span>
+    <span class="tab-label">My feeds</span>
+  </a>
+  <a class="tab-item " href="explore.html">
+    <span class="icon icon-share"></span>
+    <span class="tab-label">Discover</span>
+  </a>
+  <a style="width: 2px; height: 1px; border: 1px solid #fff;border-radius: 10px;" class="tab-item plus" href="post.html">
+    <span class="icon icon-plus"></span>
+    <span class="tab-label"></span>
+  </a>
+  <a class="tab-item " href="follow.html">
+    <span class="icon icon-star"></span>
+    <span class="tab-label">Following</span>
+  </a>
+  <a class="tab-item active" href="profile.html">
+    <span class="icon icon-person"></span>
+    <span class="tab-label">Profile</span>
+  </a>
+</nav>
+      
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!-- <script type="text/javascript" src="js/fontawesome-all.js"></script> -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- Include the compiled Ratchet JS -->
+    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+  </body>
+</html>
