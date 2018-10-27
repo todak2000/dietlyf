@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>DietLyf Login </title>
+    <title>DiabCare Login </title>
  
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
@@ -32,17 +32,17 @@
 				$password = mysqli_real_escape_string($con,$password);
 				
 			//Checking is user existing in the database or not
-		        $query = "SELECT * FROM patients WHERE email='".$email."' and password='".md5($password)."' ";
+		        $query = "SELECT * FROM user WHERE email='".$email."' and password='".md5($password)."' ";
 				
 				$result = mysqli_query($con,$query) or die(mysql_error());
 				$rows = mysqli_num_rows($result);
 				
-		        if($rows>0){
+		        if($rows==1){
                     $_SESSION['username'] = $username;
                     $_SESSION['firstname'] = $firstname;
                     $_SESSION['lastname'] = $lastname;
                     $_SESSION['email'] = $email;
-					header("Location: index.php");// Redirect user to index.php
+					header("Location: info.php");// Redirect user to index.php
 		            }else{
                         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
 
@@ -78,7 +78,7 @@
             </div>
             <div class="col-xs-6">
               <!-- <p class="forget"><a href="index.php"> Sign up</a></p> -->
-              <p>Not registered foer DietLyf yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
+              <p>Not registered foer DiabCare yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
             </div>
         </div>
         

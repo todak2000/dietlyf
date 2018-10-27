@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dietlyf Registration </title>
+    <title>DiabCare Registration </title>
 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
@@ -49,7 +49,7 @@
 				$gender = stripslashes($_REQUEST['gender']);
 				$gender = mysqli_real_escape_string($con,$gender);
 
-		    //     $query = "INSERT into `patients` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
+		    //     $query = "INSERT into `user` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
 			// 	$result = mysqli_query($con,$query);
 		    //     if($result){
 		    //         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>You are registered successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
@@ -64,7 +64,7 @@
 
                 } else{
 
-                    $query = "SELECT * FROM patients WHERE userName='".$username."' or email='".$email."' ";
+                    $query = "SELECT * FROM user WHERE userName='".$username."' or email='".$email."' ";
                     $result = mysqli_query($con,$query);
                     $rows = mysqli_num_rows($result);
             
@@ -72,7 +72,7 @@
                         // echo" Error (400). Username or email already exists";
                         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username or email already exists.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
                     } else{
-                            $query = "INSERT into `patients` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
+                            $query = "INSERT into `user` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
                             $result = mysqli_query($con,$query);
                             if($result){
                                 // echo "Success (200). Registration Successful";
@@ -94,7 +94,7 @@
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
-      <div style="margin-bottom: 0px;"><h5 align="center">Hi, <br> Sign up with Dietlyf</h5></div>
+      <div style="margin-bottom: 0px;"><h5 align="center">Hi, <br> Sign up with DiabCare</h5></div>
       <form name="registration" action="" method="post">
         <div class="row">
             <div class="col-xs-12"><input type="text" name="username" placeholder="User Name" required class="form-control inp"/></div>
