@@ -45,8 +45,8 @@
             $result = mysqli_query($con,$query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
             if($rows==1){
-                
-                $query= "INSERT into `user` (height,bmi,bsl,weight) VALUES ('$height','$bmi', '$bsl','$weight')";
+                $query= "UPDATE user SET height='$Npassword'and bmi='$bmi' and bsl='$bsl' and weight='$weight' where email='$email'";
+                // $query= "INSERT into `user` (height,bmi,bsl,weight) VALUES ('$height','$bmi', '$bsl','$weight')";
                 $result = mysqli_query($con,$query);
                 if($result){
                     header("Location: reset.php");
