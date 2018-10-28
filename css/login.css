@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
-html, body{
+html, body, .col-xs-5, .col-xs-7{
 	margin:0;
 	padding: 0;
 	width: 100%;
@@ -46,4 +46,5 @@ a{
     text-decoration: none;
     color: #fff;
 }
+
 

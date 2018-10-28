@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>DiabCare reset </title>
+    <title>DietLyf reset </title>
  
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -74,7 +74,7 @@
             </div>
             <div class="col-xs-6">
               <!-- <p class="forget"><a href="index.php"> Sign up</a></p> -->
-              <p>Not registered foer DiabCare yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
+              <p>Not registered foer DietLyf yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
             </div>
         </div>
         

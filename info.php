@@ -69,14 +69,21 @@
             
             if($rows==1){
                 $_SESSION['email'] = $email;
-                $update= "UPDATE user SET height='$height'and weight='$weight' and bmi='$bmi' and bsl='$bsl' where email='$email'";
+                
+                //$update= "UPDATE user SET height='$height'and weight='$weight' and bmi='$bmi' and bsl='$bsl' where email='$email'";
                 // header("Location: profile.php");
-                $result = mysqli_query($con,$update)or die(mysql_error());
+                $update1= "UPDATE user SET height='$height' where email='$email'";
+                $result1 = mysqli_query($con,$update1)or die(mysqli_error());
+                $update2= "UPDATE user SET weight='$weight' where email='$email'";
+                $result2 = mysqli_query($con,$update2)or die(mysqli_error());
+                $update3= "UPDATE user SET bmi='$bmi' where email='$email'";
+                $result3 = mysqli_query($con,$update3)or die(mysqli_error());
+                $update4= "UPDATE user SET bsl='$bsl' where email='$email'";
+                $result4 = mysqli_query($con,$update4)or die(mysqli_error());
                  //var_dump($update);
-                if($result){
-                    var_dump($update);
-                    //header("Location: profile.php");
-
+                if($result4){
+                    
+                    echo "OK";
                 }
             }
             else{
@@ -91,7 +98,7 @@
       </header>
 
     <div class="content">
-        <?php echo "<p class='jive'>Welcome".$row['firstName']."! <br>Please enter the following details</p>"; ?>
+    <p class='jive'>Welcome! <br>Please enter the following details</p>
           
           <!-- echo "<td>" . $row['FirstName'] . "</td>"; -->
       </div>
@@ -99,33 +106,48 @@
       <form name="registration" action="" method="post">
         <div class="row">
             
-            <div class="col-xs-12">Please Indicate your height:
-            <input type="number" name="height" placeholder="" required class="form-control inp"/> (cm)
+            <div class="col-xs-12">
+              <div class="row">
+                <div class="col-xs-7" style="text-align:left; padding-top:10px;">height (cm):</div>
+                <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent;color:#fff;" type="number" name="height" placeholder="" required class="form-control iip"/></div>
+              </div>
             </div>
-            <div class="col-xs-12">Please Indicate your BMI:
-            <input type="number" name="bmi" placeholder="" required class="form-control inp"/>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:left; padding-top:10px;">Body Mass Index:</div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="bmi" placeholder="" required class="form-control iip"/></div>
+              </div>
             </div>
-            <div class="col-xs-12">Please Indicate your Blood Sugar Level:
-            <input type="number" name="bsl" placeholder="" required class="form-control inp"/> (mg/dL)
+
+            <div class="col-xs-12">
+             <div class="row">
+                    <div class="col-xs-7" style="text-align:left; padding-top:10px;">Blood Sugar Level (mg/dL):</div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="bsl" placeholder="" required class="form-control iip"/> </div>
+              </div>
             </div>
         </div>
           
         <div class="row" style="margin-top:10px; margin-bottom: 20px;">
-            <div class="col-xs-12">Please Indicate your Weight:
-                <select class="round" style=" margin:10px 0 5px 0; " name="weight">
-                    <option>110cm</option>
-                    <option>120cm</option>
-                    <option>130cm</option>
-                    <option>140cm</option>
-                    <option>150cm</option>
-                    <option>160cm</option>
-                    <option>170cm</option>
-                    <option>180cm</option>
-                    <option>190cm</option>
-                    <option>200cm</option>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:left; padding-top:10px;">Weight (kg):</div>
+                    <div class="col-xs-5">
+                    <select class="round form-control"  name="weight" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;">
+                    <option>110</option>
+                    <option>120</option>
+                    <option>130</option>
+                    <option>140</option>
+                    <option>150</option>
+                    <option>160</option>
+                    <option>170</option>
+                    <option>180</option>
+                    <option>190</option>
+                    <option>200</option>
                     
                 </select>
-                <span class="input-group-text" id="basic-addon2"><img style="width:20px; height:20px; margin-left:-25px; padding-top: 10px;" src="css/down.svg"></span>
+                <!-- <span class="input-group-text" id="basic-addon2"><img style="width:20px; height:20px; margin-left:-25px; padding-top: 10px;" src="css/down.svg"></span> -->
+                     </div>
+              </div>
             </div>
         </div>  
           

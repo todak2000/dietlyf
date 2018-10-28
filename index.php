@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>DiabCare Registration </title>
+    <title>Dietlyf Registration </title>
 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-
+    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
+
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->

@@ -24,7 +24,7 @@
 			require('auth/db.php');
 			session_start();
 		    // If form submitted, insert values into the database.
-		    if (isset($_POST['submit'])){
+		    if (isset($_POST['email'])){
 				
 				$email = stripslashes($_REQUEST['email']); // removes backslashes
 				$email = mysqli_real_escape_string($con,$email); //escapes special characters in a string
@@ -38,10 +38,9 @@
 				$rows = mysqli_num_rows($result);
 				
 		        if($rows==1){
-                    $_SESSION['username'] = $username;
-                    $_SESSION['firstname'] = $firstname;
-                    $_SESSION['lastname'] = $lastname;
+                   
                     $_SESSION['email'] = $email;
+
 					header("Location: info.php");// Redirect user to index.php
 		            }else{
                         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
@@ -78,7 +77,7 @@
             </div>
             <div class="col-xs-6">
               <!-- <p class="forget"><a href="index.php"> Sign up</a></p> -->
-              <p>Not registered foer DiabCare yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
+              <p>Not registered for DiabCare yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
             </div>
         </div>
         
