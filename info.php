@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>DiabCare info </title>
- 
+    <title>DietLyf info </title>
+    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="shortcut icon" type="image/png" href="img/diet3.png"/>
+
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
@@ -21,13 +21,17 @@
   </head>
   <body class="container">
   <?php
+            require('auth/auth.php');
             require('auth/db.php');
-            $_SESSION['email'] = $email;
-            $_SESSION['username'] = $username;
-            $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $lastname;
-            $_SESSION['email'] = $email;
-			// session_start();
+             // session_start();
+            // $_SESSION['email'] = $email;
+            // $_SESSION['username'] = $username;
+            // $_SESSION['firstname'] = $firstname;
+            // $_SESSION['lastname'] = $lastname;
+            // $_SESSION['email'] = $email;
+            
+            
+            
 		    // If form submitted, insert values into the database.
 		    if (isset($_POST['next'])){
 				
@@ -38,22 +42,45 @@
                 $bsl = stripslashes($_REQUEST['bsl']);
                 $bsl = mysqli_real_escape_string($con,$bsl);
                 $weight = stripslashes($_REQUEST['weight']);
-				$weight = mysqli_real_escape_string($con,$weight);
-				
+                $weight = mysqli_real_escape_string($con,$weight);
+                
+
+            //     $sql    = "SELECT * FROM usermaster WHERE User_name=''";
+            // $result = mysqli_query($sql) or die(mysqli_error());
+            // while ($row    = mysqli_fetch_array($result))
+            // {
+
+            //     $Name     = $row['firstNaame'];
+            //     $Username = $row['lastName'];
+               
+            // }
 			//Checking is user existing in the database or not
             $query = "SELECT * FROM `user` WHERE email='$email'";
             $result = mysqli_query($con,$query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
+            // while ($row    = mysqli_fetch_array($result))
+           
+            // {
+
+            //     $Name     = $row['firstName'];
+            //     $Username = $row['lastName'];
+               
+            // }
+            
             if($rows==1){
-                $query= "UPDATE user SET height='$Npassword'and bmi='$bmi' and bsl='$bsl' and weight='$weight' where email='$email'";
-                // $query= "INSERT into `user` (height,bmi,bsl,weight) VALUES ('$height','$bmi', '$bsl','$weight')";
-                $result = mysqli_query($con,$query);
+                $_SESSION['email'] = $email;
+                $update= "UPDATE user SET height='$height'and weight='$weight' and bmi='$bmi' and bsl='$bsl' where email='$email'";
+                // header("Location: profile.php");
+                $result = mysqli_query($con,$update)or die(mysql_error());
+                 //var_dump($update);
                 if($result){
-                    header("Location: reset.php");
+                    var_dump($update);
+                    //header("Location: profile.php");
 
                 }
-                         }else{
-                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br><?php echo $firstname; ?>! <br>Your details was NOT saved successfully. Please try again!</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
+            }
+            else{
+                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><?php echo $Name; ?>! <br>Your details was NOT saved successfully. Please try again!</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
     
                                     }
         }else{
@@ -64,8 +91,9 @@
       </header>
 
     <div class="content">
-
-          <p class="jive">Welcome <?php echo $firstname; ?>! <br>Please enter the following details</p>
+        <?php echo "<p class='jive'>Welcome".$row['firstName']."! <br>Please enter the following details</p>"; ?>
+          
+          <!-- echo "<td>" . $row['FirstName'] . "</td>"; -->
       </div>
 
       <form name="registration" action="" method="post">
