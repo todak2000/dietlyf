@@ -30,7 +30,18 @@
             // $_SESSION['lastname'] = $lastname;
             // $_SESSION['email'] = $email;
             
-            
+            //Checking is user existing in the database or not
+            $query = "SELECT * FROM `user` WHERE email='$email'";
+            $result = mysqli_query($con,$query) or die(mysql_error());
+            $rows = mysqli_num_rows($result);
+            while ($row    = mysqli_fetch_array($result))
+           
+            {
+
+                $Name     = $row['firstName'];
+                $Username = $row['userName'];
+               
+            }
             
 		    // If form submitted, insert values into the database.
 		    if (isset($_POST['next'])){
@@ -54,18 +65,7 @@
             //     $Username = $row['lastName'];
                
             // }
-			//Checking is user existing in the database or not
-            $query = "SELECT * FROM `user` WHERE email='$email'";
-            $result = mysqli_query($con,$query) or die(mysql_error());
-            $rows = mysqli_num_rows($result);
-            // while ($row    = mysqli_fetch_array($result))
-           
-            // {
-
-            //     $Name     = $row['firstName'];
-            //     $Username = $row['lastName'];
-               
-            // }
+			
             
             if($rows==1){
                 $_SESSION['email'] = $email;
@@ -81,13 +81,16 @@
                 $update4= "UPDATE user SET bsl='$bsl' where email='$email'";
                 $result4 = mysqli_query($con,$update4)or die(mysqli_error());
                  //var_dump($update);
-                if($result4){
+                if($result4 and $result1 and $result2 and $result3){
                     
-                    echo "OK";
+                    //echo "OK";
+                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Your details was saved successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
+    
+
                 }
             }
             else{
-                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><?php echo $Name; ?>! <br>Your details was NOT saved successfully. Please try again!</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
+                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span>Sorry! <br>Your details was NOT saved successfully. Please try again!</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
     
                                     }
         }else{
@@ -98,8 +101,8 @@
       </header>
 
     <div class="content">
-    <p class='jive'>Welcome! <br>Please enter the following details</p>
-          
+    <p class='jive'>Welcome <?php echo $Name; ?> !<br>Please enter the following details</p>
+    
           <!-- echo "<td>" . $row['FirstName'] . "</td>"; -->
       </div>
 
@@ -133,16 +136,16 @@
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Weight (kg):</div>
                     <div class="col-xs-5">
                     <select class="round form-control"  name="weight" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;">
-                    <option>110</option>
-                    <option>120</option>
-                    <option>130</option>
-                    <option>140</option>
-                    <option>150</option>
-                    <option>160</option>
-                    <option>170</option>
-                    <option>180</option>
-                    <option>190</option>
-                    <option>200</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">110</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">120</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">130</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">140</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">150</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">160</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">170</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">180</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">190</option>
+                    <option style=" color:#232323; background-color:#d9edf7;">200</option>
                     
                 </select>
                 <!-- <span class="input-group-text" id="basic-addon2"><img style="width:20px; height:20px; margin-left:-25px; padding-top: 10px;" src="css/down.svg"></span> -->
