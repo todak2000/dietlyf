@@ -40,6 +40,16 @@
 
                 $Name     = $row['firstName'];
                 $Username = $row['userName'];
+                $Username = $row['userName'];
+                $Email = $row['email'];
+                $Phone = $row['phoneNo'];
+                $Age = $row['age'];
+                $Gender = $row['gender'];
+                $bmi = $row['bmi'];
+                $bsl = $row['bsl'];
+                $Height = $row['height'];
+                $Weight = $row['weight'];
+               
                
             }
             
@@ -83,9 +93,7 @@
                  //var_dump($update);
                 if($result4 and $result1 and $result2 and $result3){
                     
-                    //echo "OK";
-                    echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Your details was saved successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
-    
+                    header("Location: profile.php");// Redirect user to index.php
 
                 }
             }
@@ -135,7 +143,7 @@
                 <div class="row">
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Weight (kg):</div>
                     <div class="col-xs-5">
-                    <select class="round form-control"  name="weight" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;">
+                    <select class="round form-control"  name="weight" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" placeholder="">
                     <option style=" color:#232323; background-color:#d9edf7;">110</option>
                     <option style=" color:#232323; background-color:#d9edf7;">120</option>
                     <option style=" color:#232323; background-color:#d9edf7;">130</option>

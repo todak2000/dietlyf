@@ -126,7 +126,7 @@
             </tr>
           </tbody>
         </table>
-        <a class="btn btn-default pull-right form-control" style=" background-color:#eee;">Update Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a>
+        <a class="btn btn-default pull-right form-control" style=" background-color:#eee;" href="#">Update Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a>
     </span>
   </div>
 <!-- BOTTOM NAVS -->
