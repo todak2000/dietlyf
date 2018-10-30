@@ -1,0 +1,48 @@
+.bar, .title{
+    background-color: #1C304E;
+    color: #fff;
+}
+.bar-tab .tab-item {
+    color: #fff;
+}
+.fa{
+    font-size:18px;
+}
+.span{
+    font-size: 11px;
+    color: #fff;
+    display: block;
+}
+.bg{
+    height:40vh;
+    background-color:#365899;
+}
+.pics{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin:10vh auto;
+}
+.fa-pencil-square-o{
+    position: absolute;
+    top:25vh;
+    left: 40%;
+    color:#fff;
+}
+.name{
+    /* position: absolute;
+    top:30vh;
+    left: 40%; */
+    text-align:center;
+    margin-top:-30px;
+    font-size:16px;
+    color:#fff;
+}
+.segmented-control .control-item.active {
+    background-color:transparent; 
+    border-bottom: 3px solid #1C304E;
+}
+.table{
+    font-size:14px;
+}
