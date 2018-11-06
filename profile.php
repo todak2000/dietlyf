@@ -140,7 +140,7 @@
             </tr>
           </tbody>
         </table>
-        <a href="edit.php"> <input type="submit" name="edit" value="Update Details" class="form-control" class="button" /></a>
+        <a href="update.php"> <input type="submit" name="edit" value="Update Details" class="form-control" class="button" /></a>
         <!-- <a class="btn btn-default pull-right form-control" style=" background-color:#eee;" name="update" href="#">Update Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a> -->
     </span>
   </div>

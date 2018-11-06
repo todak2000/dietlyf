@@ -72,8 +72,11 @@
                         // echo" Error (400). Username or email already exists";
                         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username or email already exists.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
                     } else{
-                            $query = "INSERT into `user` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
+                           $query = "INSERT into `user` (userName,firstName,lastName,phoneNo,email,password,age,gender) VALUES ('$username','$firstname', '$lastname','$phoneno','$email','".md5($password)."', '$age', '$gender')";
+                           //$query = "INSERT into `healthdetails` (height,weight,bsl,bmi,email) VALUES ('23','24', '25','26','tod@ad.com')";
+                          
                             $result = mysqli_query($con,$query);
+                            var_dump($result);
                             if($result){
                                 // echo "Success (200). Registration Successful";
                                 echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>You are registered successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";

@@ -41,7 +41,7 @@
                    
                     $_SESSION['email'] = $email;
 
-					header("Location: info.php");// Redirect user to index.php
+					header("Location: profile.php");// Redirect user to index.php
 		            }else{
                         echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
 
