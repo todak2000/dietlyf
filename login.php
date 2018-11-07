@@ -78,7 +78,9 @@
             <div class="col-xs-6">
               <!-- <p class="forget"><a href="index.php"> Sign up</a></p> -->
               <p>Not registered for DiabCare yet? <br><a style='color:#979b1b;' href='index.php'>Sign up</a></p>
+              
             </div>
+            <p align="center">Admin <br><a style='color:#979b1b;' href='admin.php'>login</a></p>
         </div>
         
     </div>
