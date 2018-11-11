@@ -118,7 +118,7 @@
    
   <script src="js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="ratchet/js/ratchet.min.js"></script>
+  <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   <script src="js/profile.js"></script>
   </body>
 </html>

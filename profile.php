@@ -31,7 +31,7 @@
             while ($row    = mysqli_fetch_array($result))
            
             {
-
+                $id = $row['id'];
                 $Firstname     = $row['firstName'];
                 $Lastname = $row['lastName'];
                 $Username = $row['userName'];
@@ -159,7 +159,7 @@
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item" href="#"  style="text-decoration: transparent;">
+      <a class="tab-item" href="chat/index.embedded.php"  style="text-decoration: transparent;">
       <i class="fa fa-user-md"></i>
         <span class="span">Chat</span>
       </a>

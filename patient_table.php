@@ -35,7 +35,7 @@
                
                 {
 
-                    echo "<div style='overflow-x:auto;'><table class='table table-sm table-dark table-responsive' style='margin-top:50px;overflow-x:auto;'>
+                    echo "<div style='overflow-x:auto;'><form method='POST'><table class='table table-sm table-dark table-responsive' style='margin-top:50px;overflow-x:auto;'>
                         <thead>
                             <tr>
                             <th scope='col'>#</th>
@@ -49,9 +49,14 @@
                             </tr>
                         </thead>
                         <tbody>";
-
+                      
+                            //echo "The number is: $x <br>";
+                            
+                        // } 
+                        // for ($x = 0; $x <=1000; $x++) {
                         while($row = mysqli_fetch_array($result))
                         {
+                           
                         echo "<tr>";
                         echo "<td>" . $row['id']. "</td>";
                         echo "<td>" . $row['firstName']. "</td>";
@@ -60,11 +65,23 @@
                         echo "<td>" . $row['phoneNo'] . "</td>";
                         echo "<td>" . $row['age']. "</td>";
                         echo "<td>" . $row['gender']. "</td>";
-                        echo "<td><a href='admin.php' ><button class='btn btn-info' style=' height:30px; width:auto;'>health details</button></a></td>"; 
-                        echo "</tr></tbody>";
+                        
+                            // echo "The number is: $x <br>";
+                           // echo "<td><a href='health_details.php'><button class='btn btn-info' style=' height:30px; width:auto;' name='health'>health details</button></a></td>"; 
                         }
-                        echo "</table><br></div>";
+                        // $x++;
+                        echo "</tr></tbody>";
+                        
+                        echo "</table></form><br></div>";
+                        echo "<a href='admin.php' ><button class='btn' style='margin: 0 30%; height:30px; width:100px;' align='center'>Back</button></a><br>
+                        <a href='health_details.php' ><input class='btn' name='health' style='margin: 0 30%; height:30px; width:100px;' align='center' placeholder='Health details'></a>
+                        ";
+                   
                 }
+
+                if (isset($_POST['health'])){
+                    header("Location: health_details.php");// Redirect user to index.php
+                    }
                 // }
             ?>
 
