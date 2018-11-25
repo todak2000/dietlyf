@@ -37,7 +37,7 @@
 			#wcchat {
 				font-family: KoHo;
 				font-size: 14px;
-				background: -webkit-linear-gradient( #1C304E, #365899, #1C304E);
+				background-color:rgba(255,255,255,0.1);
 				color: black;
 				width:100%;
 				height:80vh;
@@ -49,12 +49,13 @@
 				overflow: hidden;
 				border-radius: 10px 0px 0px 10px;
 				color:#fff;
-				background-color:#52555af5!important;
+				background-color:rgba(255,255,255,0.1)!important;
 			}
 		</style>
 	</head>
-	<body>
-		<h1 style="text-align: center; font-weight: normal">DiabCare Chat Forum</h1>
+	<body style="background: -webkit-linear-gradient( #1C304E, #365899, #1C304E); color:#fff;">
+	
+		<h1 style="text-align: center; font-weight: bolder; font-family:koHo;"><img src="../img/diet2.svg" width="50" height="50" align="center"><br>DiabCare Chat Forum</h1>
 		<?php
 
 			include 'wcchat.class.php';    # Change this to match your server's path to "wcchat.class.php"

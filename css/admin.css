@@ -37,3 +37,29 @@
       background-color: transparent;
       border:0;
   }
+  .forma{
+    margin-top: 0;
+    margin-top: 0;
+    color: #ccc;
+    background-color: rgba(0,0,0, 0.5);
+    width: 90%;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    border-radius: 10px;
+    padding: 15px;
+}
+@media only screen and (max-width: 767px) {
+    
+     .forma{
+        margin-top: 0;
+        color: #ccc;
+        background-color: rgba(0,0,0, 0.5);
+        width: 96%;
+        position: fixed;
+        top: 10%;
+        left: 2%;
+        border-radius: 10px;
+        padding: 15px;
+     }
+ }

@@ -36,6 +36,7 @@
                 // $Username = $row['userName'];
                 $Username = $row['userName'];
                 $Email = $row['email'];
+                $id = $row['id'];
                 // $Phone = $row['phoneNo'];
                 // $Age = $row['age'];
                 // $Gender = $row['gender'];
@@ -62,7 +63,7 @@
 
 				 
 
-		        $query = "INSERT into `healthdetails` (height,weight,bsl,bmi,email) VALUES ('$height','$weight', '$bsl','$bmi','$Email')";
+		        $query = "INSERT into `healthdetails` (height,weight,bsl,bmi,email, user_id) VALUES ('$height','$weight', '$bsl','$bmi','$Email','$id')";
 				$result = mysqli_query($con,$query);
 		        if($result){
 		            echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Your Details Updated successfully.</h3><br/>Back <a style='color:#979b1b;' href='profile.php'>Home</a></div>";

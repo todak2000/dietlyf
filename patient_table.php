@@ -45,6 +45,7 @@
                             <th scope='col'>Phone No</th>
                             <th scope='col'>Age</th>
                             <th scope='col'>Gender</th>
+                            <th scope='col'>Health details</th>
                            
                             </tr>
                         </thead>
@@ -65,6 +66,7 @@
                         echo "<td>" . $row['phoneNo'] . "</td>";
                         echo "<td>" . $row['age']. "</td>";
                         echo "<td>" . $row['gender']. "</td>";
+                        echo "<td> <input type='button' name='view' value='view' id=" . $row['id']. " class='view_data btn btn-default btn-xs'><input type='button' name='message' value='Message' id=" . $row['id']. " class='message_data btn btn-info btn-xs'></td>";
                         
                             // echo "The number is: $x <br>";
                            // echo "<td><a href='health_details.php'><button class='btn btn-info' style=' height:30px; width:auto;' name='health'>health details</button></a></td>"; 
@@ -73,15 +75,11 @@
                         echo "</tr></tbody>";
                         
                         echo "</table></form><br></div>";
-                        echo "<a href='admin.php' ><button class='btn' style='margin: 0 30%; height:30px; width:100px;' align='center'>Back</button></a><br>
-                        <a href='health_details.php' ><input class='btn' name='health' style='margin: 0 30%; height:30px; width:100px;' align='center' placeholder='Health details'></a>
-                        ";
+                       
                    
                 }
 
-                if (isset($_POST['health'])){
-                    header("Location: health_details.php");// Redirect user to index.php
-                    }
+               
                 // }
             ?>
 
@@ -92,12 +90,70 @@
       <<span class="icon icon-bars"></span>
     </header>
 <!-- end of header -->
-
 <a href="admin.php" ><button class="btn" style="margin: 0 30%; height:30px; width:100px;" align="center">Back</button></a>
-   
+
+<div align='center' class='forma' >
+    <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="patient_detail">
+        
+      </div>
+      <!-- <div class="modal-footer">
+       
+        <button type="button" class="btn btn-primary pull-right"></button>
+      </div> -->
+</div>
+
+<div align='center' class='formaa' >
+    <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="message_detail">
+        
+      </div>
+      <!-- <div class="modal-footer">
+       
+        <button type="button" class="btn btn-primary pull-right"></button>
+      </div> -->
+</div>
+
   <script src="js/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   <script src="ratchet/js/ratchet.min.js"></script>
   <script src="js/profile.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('.forma').hide();
+    // onclicking the view of each person, a modal pops up showing his/her details
+        $('.view_data').click(function(){
+          
+            var patient_id = $(this).attr("id");
+
+            $.ajax({
+                url:"select.php",
+                method:"post",
+                data: {patient_id: patient_id},
+                success:function(data){
+                    $('#patient_detail').html(data);
+                    $('.forma').show();
+                }
+            });
+        });
+
+
+        $('.close').click(function(){
+      $('.forma').hide();
+    });
+    });
+  </script>
+  
   </body>
 </html>
