@@ -45,19 +45,15 @@
                 $Weight = $row['weight'];
                 $Image = $row['image'];
             }
-            // if (isset($_POST['edit'])){
-            //   $Image = stripslashes($_REQUEST['image']);
-            //   $update10= "UPDATE user SET image='$Image' where email='$Email'";
-            //   $result10 = mysqli_query($con,$update10)or die(mysqli_error());       
-            //   if($result10){
-            //     echo "image uploaded successfully";
-            //   }else{echo "image not uploaded";}
-            // }
-
+         // diet update messages QUERY
+         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email'";
+         $resulta = mysqli_query($con,$querya) or die(mysqli_error());
+         $rowsa = mysqli_num_rows($resulta);
+            var_dump($rowsa);
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
-      <<span class="icon icon-bars"></span>
+      <span class="icon icon-bars"></span>
     </header>
 <!-- end of header -->
 <!-- profile  -->
@@ -108,7 +104,7 @@
               <td><?php echo $Age; ?></td>
             </tr>
             <tr>
-              <th scope="row">Gender</th>
+              <th scope="row" >Gender</th>
               <td><?php echo $Gender; ?></td>
             </tr>
           </tbody>
@@ -148,22 +144,27 @@
 <!-- BOTTOM NAVS -->
     <nav class="bar bar-tab">
       <a class="tab-item active" href="profile.php">
+      <span class="span" style="color:transparent">1</span> 
         <i class="fa fa-user-o"></i>
         <span class="span">Profile</span>
       </a>
-      <a class="tab-item" href="#" style="text-decoration: transparent;">
-      <i class="fa fa-gift"></i>
-        <span class="span">Diet Update</span>
+      <a class="tab-item"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%; margin-top:10px;"><?php echo $rowsa; ?></span> 
+      <i class="fa fa-gift" id="diet"></i>
+        <span class="span">Diet Update</span> 
       </a>
       <a class="tab-item" href="appointment.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item" href="chat/index.embedded.php"  style="text-decoration: transparent;">
+      <a class="tab-item" href="chat/index.php"  style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-user-md"></i>
         <span class="span">Chat</span>
       </a>
       <a class="tab-item" href="login.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-power-off"></i>
         <span class="span">Log out</span>
       </a>
@@ -173,5 +174,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="ratchet/js/ratchet.min.js"></script>
   <script src="js/profile.js"></script>
+  <script>
+    
+    $(document).ready(function(){
+      //$("#notification").css("display", "none");
+        $("#diet").click(function() {
+            // $("#notification").hide();
+            $("#notification").css("display", "none");
+        });
+    
+    });
+      </script>
+      
   </body>
 </html>

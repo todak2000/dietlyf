@@ -21,13 +21,10 @@
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   </head>
-  <body style=" font-family: 'KoHo', sans-serif; overflow-x:auto;">
+  <body style=" font-family: 'KoHo', sans-serif; overflow-x:auto; overflow-y:auto; position:relative;">
   <?php
-            // require('auth/auth.php');
             require('auth/db.php');
-            
-            // ON CLICK PATIENTS BUTTTON
-            // if (isset($_POST['patients'])){
+
                 $query = "SELECT * FROM `user`";
                 $result = mysqli_query($con,$query) or die(mysql_error());
                 $rows = mysqli_num_rows($result);
@@ -35,7 +32,7 @@
                
                 {
 
-                    echo "<div style='overflow-x:auto;'><form method='POST'><table class='table table-sm table-dark table-responsive' style='margin-top:50px;overflow-x:auto;'>
+                    echo "<div style='overflow:auto;'><form method='POST' style='margin: 5% 15%; overflow:auto;'><table class='table table-sm table-dark table-responsive' style='margin-top:50px;overflow-x:auto;overflow:auto;'>
                         <thead>
                             <tr>
                             <th scope='col'>#</th>
@@ -51,10 +48,6 @@
                         </thead>
                         <tbody>";
                       
-                            //echo "The number is: $x <br>";
-                            
-                        // } 
-                        // for ($x = 0; $x <=1000; $x++) {
                         while($row = mysqli_fetch_array($result))
                         {
                            
@@ -66,12 +59,10 @@
                         echo "<td>" . $row['phoneNo'] . "</td>";
                         echo "<td>" . $row['age']. "</td>";
                         echo "<td>" . $row['gender']. "</td>";
-                        echo "<td> <input type='button' name='view' value='view' id=" . $row['id']. " class='view_data btn btn-default btn-xs'><input type='button' name='message' value='Message' id=" . $row['id']. " class='message_data btn btn-info btn-xs'></td>";
-                        
-                            // echo "The number is: $x <br>";
-                           // echo "<td><a href='health_details.php'><button class='btn btn-info' style=' height:30px; width:auto;' name='health'>health details</button></a></td>"; 
+                        echo "<td> <input type='button' name='view' value='view' id=" . $row['id']. " class='view_data btn btn-default btn-xs' style='width:100px; background-color:#ffc655; margin:2px;'><input type='button' name='message' value='Message' id=" . $row['id']. " class='message_data btn btn-info btn-xs' style='width:100px; background-color:green; margin:2px;'></td>";
+                    
                         }
-                        // $x++;
+                       
                         echo "</tr></tbody>";
                         
                         echo "</table></form><br></div>";
@@ -87,14 +78,13 @@
 
       <header class="bar bar-nav">
       <h1 class="title">Patients Table</h1>
-      <<span class="icon icon-bars"></span>
+      <a href="profile.php"><span class="icon icon-bars"></span></a>
     </header>
 <!-- end of header -->
-<a href="admin.php" ><button class="btn" style="margin: 0 30%; height:30px; width:100px;" align="center">Back</button></a>
-
+<a href="admin.php" ><button class="btn" type="submit" style="margin: 0 45%; height:30px; width:10%;" align="center">Back</button></a>
+<a href="admin.php" class="btn btn-success">Back</a>
 <div align='center' class='forma' >
     <div class="modal-header">
-        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -102,26 +92,23 @@
       <div class="modal-body" id="patient_detail">
         
       </div>
-      <!-- <div class="modal-footer">
-       
-        <button type="button" class="btn btn-primary pull-right"></button>
-      </div> -->
 </div>
 
 <div align='center' class='formaa' >
     <div class="modal-header">
-        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <h5 class="modal-title" id="exampleModalLabel">Personal Message to Patient</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form method="POST" action="mesg.php">
       <div class="modal-body" id="message_detail">
         
       </div>
-      <!-- <div class="modal-footer">
-       
-        <button type="button" class="btn btn-primary pull-right"></button>
-      </div> -->
+      <div class="modal-footer">
+        <button type="button" class="btn close pull-left btn-secondary " data-dismiss="modal">Close</button>
+        <button type="submit" id="send_message" name="send_message" class="btn btn-primary">Send message</button></form>
+      </div>
 </div>
 
   <script src="js/jquery.js"></script>
@@ -132,6 +119,7 @@
   <script>
     $(document).ready(function(){
         $('.forma').hide();
+        $('.formaa').hide();
     // onclicking the view of each person, a modal pops up showing his/her details
         $('.view_data').click(function(){
           
@@ -150,8 +138,28 @@
 
 
         $('.close').click(function(){
-      $('.forma').hide();
-    });
+            $('.forma').hide();
+     });
+
+    //  MESSAGE PORTAL TO SPECIFIC PATIENT $('.view_data').click(function(){
+          
+            
+            $('.message_data').click(function(){
+                var message_id = $(this).attr("id");
+                $.ajax({
+                    url:"mesg.php",
+                    method:"post",
+                    data: {message_id: message_id},
+                    success:function(data){
+                        $('#message_detail').html(data);
+                        $('.formaa').show();
+                    }
+                });
+                });
+                $('.close').click(function(){
+            $('.formaa').hide();
+     });
+     
     });
   </script>
   

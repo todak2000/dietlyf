@@ -19,7 +19,9 @@
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   </head>
-  <body class="container">
+  <body style="width: 100%;height: 100vh;">
+    
+    
   <?php
             require('auth/auth.php');
             require('auth/db.php');
@@ -93,59 +95,92 @@
                                     }
         }else{
                 ?>
-  <header class="bar bar-nav">
-        <button class="btn btn-link btn-nav pull-center">
-          <img src="img/diet2.svg" ></button>
-      </header>
-
-    <div class="content">
-    <p class='jive' style="font-size:13px;"><?php echo $Name; ?> !<br>Book an Appointment With your Dietrician Now!</p>
-    
-          <!-- echo "<td>" . $row['FirstName'] . "</td>"; -->
-      </div>
-
-      <form name="registration" action="" method="post">
-        <div class="row">
-            <div class="row">
-                <div class="col-xs-3 pd inp" style="padding-top:10px;margin-bottom:5px;">Recipient:</div>
-                <div class="col-xs-9 pd"><p class="form-control inp">@Dr. Adekitan</p></div>
-            </div>
-            <div class="row">
-            <div class="col-xs-3 pd inp" style="padding-top:10px; margin-bottom:5px;">Date:</div>
-            <div class="col-xs-9 pd"><input type="date" name="date" placeholder="" required class="form-control inp" style="margin-bottom:5px;"/></div>
-            <div class="col-xs-3 pd inp" style="padding-top:10px;margin-bottom:5px;">Time slot:</div>
-            <div class="col-xs-9 pd">
-                <select class="round form-control"  name="time" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" placeholder="Duration">
-                    <option style=" color:#232323; background-color:#d9edf7;">10 mins</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">20 mins</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">1 hour</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">2 hours</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">5 hours</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">10 hours</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">unlimited</option>
-                    
-                </select>
-                </div>
-            </div>
-            <div class="form-group" style="margin-top:15px;">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text" style="height:150px;" name="message" placeholder="Enter your additional information here..."></textarea>
+    <header class="bar bar-nav">
+      <h1 class="title">Book an Appointment!</h1>
+      <span class="icon icon-bars"></span>
+    </header>
+    <!-- <button class="btn btn-link btn-nav pull-center">
+          <img src="img/diet2.svg" >
+    </button> -->
+    <div class="" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:15%;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <form name="registration" action="" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="color:#232323;">Book an Appointment With your Dietrician Now!</h5>
           </div>
-          <div  style="text-align:center; width: 280px; margin: auto;">
-          <input type="submit" name="book" value="Confirm" class="btn " style="background-color:rgba(0,0, 0, 0.3); height: 30px; width:70px; margin: 5px;font-size: 13px; color:#ccc;"/> 
-          <!-- <a class="tab-item" href="" name="book" class="btn" style="background-color:rgba(0,0, 0, 0.3); height: 30px; width:100px; padding: 5px; font-size: 13px;color:#ccc;  border-radius:5px; float:left;"><i class="fa fa-check"></i>  confirm</a> -->
-          <a class="tab-item" href="profile.php"  class="btn pull-right" style="background-color:rgba(0,0, 0, 0.3); height: 30px; width:100px; padding: 5px; font-size: 13px;color:#ccc; float:right;  border-radius:5px;"><i class="fa fa-times"></i>  Cancel</a> </div>
-        </form> 
-         
-        </div>  
+          <div class="modal-body">
+            
+            <!-- Recipient -->
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label pull-left">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name" value="@Admin">
+              </div>
+              <!-- date -->
+              <div class="form-group">
+                <label for="date" class="col-form-label pull-left">Date:</label>
+                <input type="date"  name="date" class="form-control" id="recipient-name" value="@Admin">
+              </div>
+              <!-- Time of appointment -->
+              <div class="form-group">
+                <label for="date" class="col-form-label pull-left">Time:</label>
+                <select class="round form-control"  name="time" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#232323;" placeholder="Duration">
+                        <option style=" color:#232323; background-color:#d9edf7;">10 mins</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">20 mins</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">1 hour</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">2 hours</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">5 hours</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">10 hours</option>
+                        <option style=" color:#232323; background-color:#d9edf7;">unlimited</option>
+                        
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label pull-left">Message:</label>
+                <textarea class="form-control" id="message-text" name="message" placeholder="Enter your additional information here..."></textarea>
+              </div>
           
-       
+          </div>
+          <div class="modal-footer">
+            <a href="profile.php"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></a>
+            <button type="submit"  name="book" class="btn btn-primary">Confirm</button>
+          </div> 
         </form>
-        
-        
+        </div>
+      </div>
     </div>
+<!-- BOTTOM NAVS -->
+<nav class="bar bar-tab">
+      <a class="tab-item " href="profile.php">
+      <span class="span" style="color:transparent">1</span> 
+        <i class="fa fa-user-o"></i>
+        <span class="span">Profile</span>
+      </a>
+      <a class="tab-item"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%; margin-top:10px;"></span> 
+      <i class="fa fa-gift" id="diet"></i>
+        <span class="span">Diet Update</span> 
+      </a>
+      <a class="tab-item active" href="appointment.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-calendar"></i>
+        <span class="span">Apointment</span>
+      </a>
+      <a class="tab-item" href="chat/index.php"  style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-user-md"></i>
+        <span class="span">Chat</span>
+      </a>
+      <a class="tab-item" href="login.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-power-off"></i>
+        <span class="span">Log out</span>
+      </a>
+    </nav>
     <?php } ?>
+    
   </body>
 </html>
+
 
 

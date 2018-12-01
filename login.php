@@ -19,35 +19,8 @@
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   </head>
-  <body class="container">
-  <?php
-			require('auth/db.php');
-			session_start();
-		    // If form submitted, insert values into the database.
-		    if (isset($_POST['email'])){
-				
-				$email = stripslashes($_REQUEST['email']); // removes backslashes
-				$email = mysqli_real_escape_string($con,$email); //escapes special characters in a string
-				$password = stripslashes($_REQUEST['password']);
-				$password = mysqli_real_escape_string($con,$password);
-				
-			//Checking is user existing in the database or not
-		        $query = "SELECT * FROM user WHERE email='".$email."' and password='".md5($password)."' ";
-				
-				$result = mysqli_query($con,$query) or die(mysql_error());
-				$rows = mysqli_num_rows($result);
-				
-		        if($rows==1){
-                   
-                    $_SESSION['email'] = $email;
-
-					header("Location: profile.php");// Redirect user to index.php
-		            }else{
-                        echo "<div align='center' class='form col-xs-12' style='margin-top: 0;color:#ccc; top: 30%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
-
-												}
-		    }else{
-                ?>
+  <body class="container" style="margin-top:10%;">
+  
   <header class="bar bar-nav">
         <button class="btn btn-link btn-nav pull-center">
           <img src="img/diet2.svg" ></button>
@@ -84,6 +57,42 @@
         </div>
         
     </div>
-    <?php } ?>
+    <?php
+			require('auth/db.php');
+			session_start();
+		    // If form submitted, insert values into the database.
+		    if (isset($_POST['email'])){
+				
+				$email = stripslashes($_REQUEST['email']); // removes backslashes
+				$email = mysqli_real_escape_string($con,$email); //escapes special characters in a string
+				$password = stripslashes($_REQUEST['password']);
+				$password = mysqli_real_escape_string($con,$password);
+				
+			//Checking is user existing in the database or not
+		        $query = "SELECT * FROM user WHERE email='".$email."' and password='".md5($password)."' ";
+				
+				$result = mysqli_query($con,$query) or die(mysql_error());
+				$rows = mysqli_num_rows($result);
+				if($rows==1){
+                   
+          $_SESSION['email'] = $email;
+
+        header("Location: profile.php");// Redirect user to index.php
+              }else{
+                      echo "<div align='center' class='formaa col-xs-12' style='margin-top: 0;color:#ccc; background-color:#23232390; border-radius:10px; top:-150px;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/><a style='color:#979b1b;' id='close' href='login.php'>Close</a></div>";
+
+                      }
+      }
+		       
+                ?>
+    <script>
+    
+    $(document).ready(function(){
+        $("#close").click(function() {
+            $(".formaa").css("display", "none");
+        });
+    
+    });
+      </script>
   </body>
 </html>

@@ -50,6 +50,7 @@
                             <th scope='col'>Weight</th>
                             <th scope='col'>BSL</th>
                             <th scope='col'>BMI</th>
+                            <th scope='col'>Date</th>
                            
                             </tr>
                         </thead>
@@ -63,6 +64,7 @@
                         echo "<td>" .  $row['weight'] . "</td>";
                         echo "<td>" . $row['bsl'] . "</td>";
                         echo "<td>" . $row['bmi'] . "</td>";
+                        echo "<td>" . $row['time'] . "</td>";
                         }
                         echo "</tr></tbody>";
                         
@@ -92,6 +94,7 @@
                                <th>Weight</th>  
                                <th>BSL</th>  
                                <th>BMI</th>  
+                               <th>Date</th>  
                                 
                           </tr>  
                           <?php  
@@ -105,6 +108,7 @@
                                <td><?php echo $row["weight"];?></td>  
                                <td><?php echo $row['bsl'] ; ?></td> 
                                <td><?php echo $row["bmi"];?></td>  
+                               <td><?php echo $row["time"];?></td>  
                           </tr>  
                           <?php  
                                }  

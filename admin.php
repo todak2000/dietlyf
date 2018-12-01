@@ -56,26 +56,6 @@
             if (isset($_POST['patients'])){
                 header("Location: patient_table.php");// Redirect user to index.php
 	
-                // $queryp = "SELECT * FROM `user`";
-                // $result = mysqli_query($con,$query) or die(mysql_error());
-                // $rows = mysqli_num_rows($result);
-                // while ($row    = mysqli_fetch_array($result))
-               
-                // {
-    
-                //     $Firstname     = $row['firstName'];
-                //     $Lastname = $row['lastName'];
-                //     $Username = $row['userName'];
-                //     $Email = $row['email'];
-                //     $Phone = $row['phoneNo'];
-                //     $Age = $row['age'];
-                //     $Gender = $row['gender'];
-                //     $bmi = $row['bmi'];
-                //     $bsl = $row['bsl'];
-                //     $Height = $row['height'];
-                //     $Weight = $row['weight'];
-                //     $Image = $row['image'];
-                // }
                 }
             ?>
       <header class="bar bar-nav">
@@ -92,29 +72,7 @@
             <!-- <div>5</div>
             <div>6</div> -->
         </div>
-<!-- BOTTOM NAVS -->
-    <!-- <nav class="bar bar-tab">
-      <a class="tab-item active" href="profile.php">
-        <i class="fa fa-user-o"></i>
-        <span class="span">Profile</span>
-      </a>
-      <a class="tab-item" href="#" style="text-decoration: transparent;">
-      <i class="fa fa-gift"></i>
-        <span class="span">Diet Update</span>
-      </a>
-      <a class="tab-item" href="appointment.php" style="text-decoration: transparent;">
-      <i class="fa fa-calendar"></i>
-        <span class="span">Apointment</span>
-      </a>
-      <a class="tab-item" href="#"  style="text-decoration: transparent;">
-      <i class="fa fa-user-md"></i>
-        <span class="span">Chat</span>
-      </a>
-      <a class="tab-item" href="login.php" style="text-decoration: transparent;">
-      <i class="fa fa-power-off"></i>
-        <span class="span">Log out</span>
-      </a>
-    </nav> -->
+
    
   <script src="js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
