@@ -35,11 +35,11 @@ require('auth/db.php');
 				$message = stripslashes($_REQUEST['message']);
                 $message = mysqli_real_escape_string($con,$message);
                 
-                $query = "INSERT into `diet_update` (email,message) VALUES ('$email','$message')";
+                $query = "INSERT into `diet_update` (email,message, seen) VALUES ('$email','$message', '1')";
 				$result = mysqli_query($con,$query);
 		        if($result){
         
-                    echo "Message sent";
+                    header("Location: patient_table.php");
 
 
                 }

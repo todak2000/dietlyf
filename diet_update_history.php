@@ -33,6 +33,11 @@
                 $query = "SELECT * FROM `diet_update` WHERE email='$email' ORDER BY date DESC";
                 $result = mysqli_query($con,$query) or die(mysql_error());
                 $rows = mysqli_num_rows($result);
+
+                $query1= "UPDATE  diet_update SET seen='0' where email='$email'";
+                $result1 = mysqli_query($con,$query1) or die(mysql_error());
+                
+
                 
             ?>
 
@@ -40,7 +45,7 @@
 
       <header class="bar bar-nav">
       <h1 class="title">Diet Updates</h1>
-      <<span class="icon icon-bars"></span>
+      <span class="icon icon-bars"></span>
     </header>
 <!-- end of header -->
                 <div style="margin-top:15%; overflow-y:auto; height:80%; margin-left:5%; margin-right:5%;">
@@ -79,7 +84,7 @@
         <i class="fa fa-user-o"></i>
         <span class="span">Profile</span>
       </a>
-      <a class="tab-item active"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <a class="tab-item active"  href="diet_update_history.php" style="padding-top:10px; text-decoration: transparent;">
       <span class="span" id="notification" style="background-color:red;width:28%; margin-left:36%; border-radius:50%; margin-top:10px;"></span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
@@ -89,7 +94,7 @@
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item remove" href="chat/index.php"  style="text-decoration: transparent;">
+      <a class="tab-item remove" href="chat.php"  style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-user-md"></i>
         <span class="span">Chat</span>

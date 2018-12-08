@@ -140,7 +140,7 @@
         $('.close').click(function(){
             $('.forma').hide();
      });
-
+     
     //  MESSAGE PORTAL TO SPECIFIC PATIENT $('.view_data').click(function(){
           
             
@@ -157,6 +157,9 @@
                 });
                 });
                 $('.close').click(function(){
+            $('.formaa').hide();
+                });
+                $('#send_message').click(function(){
             $('.formaa').hide();
      });
      

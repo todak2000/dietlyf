@@ -46,10 +46,10 @@
                 $Image = $row['image'];
             }
          // diet update messages QUERY
-         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email'";
+         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
          $resulta = mysqli_query($con,$querya) or die(mysqli_error());
          $rowsa = mysqli_num_rows($resulta);
-            var_dump($rowsa);
+            // var_dump($rowsa);
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
@@ -59,10 +59,11 @@
 <!-- profile  -->
 <form action="" method="post" enctype="multipart/form-data">
     <div class="col-xs-12 col-sm-12 bg">
-      <div class="img-circle pics">
-        <img src="img/diet.svg">
-        <div style="width:80px; height:80px;"><?php echo $Image; ?> </div>
-      </div>
+      <!-- <div class="img-circle pics"> -->
+        <!-- <img src="img/diet.svg"> -->
+        <img  class="pics" style="height:35%; border-radius:50%; margin-left:35%;width:30%" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+        <!-- <div style="width:80px; height:80px;"><?php echo $Image; ?> </div> -->
+      <!-- </div> -->
       <h3 class="name"><?php echo $Firstname; ?> <?php echo $Lastname; ?> <br>
         @<?php echo $Username; ?> 
       </h3>
@@ -143,13 +144,13 @@
   </form>
 <!-- BOTTOM NAVS -->
     <nav class="bar bar-tab">
-      <a class="tab-item active" href="profile.php">
+      <a class="tab-item active href="profile.php"">
       <span class="span" style="color:transparent">1</span> 
         <i class="fa fa-user-o"></i>
         <span class="span">Profile</span>
       </a>
-      <a class="tab-item"  href="diet_update_history.php" style="text-decoration: transparent;">
-      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%; margin-top:10px;"><?php echo $rowsa; ?></span> 
+      <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%;"><?php echo $rowsa; ?></span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
       </a>
@@ -158,12 +159,12 @@
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item" href="chat/index.php"  style="text-decoration: transparent;">
+      <a class="tab-item" href="chat.php"  style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-user-md"></i>
         <span class="span">Chat</span>
       </a>
-      <a class="tab-item" href="login.php" style="text-decoration: transparent;">
+      <a class="tab-item" id="dsa" href="login.php" style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-power-off"></i>
         <span class="span">Log out</span>
@@ -177,13 +178,21 @@
   <script>
     
     $(document).ready(function(){
-      //$("#notification").css("display", "none");
-        $("#diet").click(function() {
-            // $("#notification").hide();
-            $("#notification").css("display", "none");
+        if ($('#notification').val() == "0"){
+          // $("#notification").css("display", "none");
+          $("#notification").css("background-color", "transparent");
+          $("#notification").css("color", "transparent");
+          $("#notification").css("margin-top", "0");
+        } 
+        // if($('#notification').val() >= 1){
+        //   // $("#notification").css("display", "block");
+        //   $("#notification").css("background-color", "red");
+        //   $("#notification").css("color", "#fff");
+        // }
+       
         });
     
-    });
+
       </script>
       
   </body>

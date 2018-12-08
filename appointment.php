@@ -157,7 +157,7 @@
         <span class="span">Profile</span>
       </a>
       <a class="tab-item"  href="diet_update_history.php" style="text-decoration: transparent;">
-      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%; margin-top:10px;"></span> 
+      <span class="span" id="notification" style="padding-top:10px;background-color:transparent;width:20px; margin-left:auto; margin-right:auto; border-radius:50%; margin-top:10px;"></span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
       </a>
@@ -166,7 +166,7 @@
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item" href="chat/index.php"  style="text-decoration: transparent;">
+      <a class="tab-item" href="chat.php"  style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
       <i class="fa fa-user-md"></i>
         <span class="span">Chat</span>
