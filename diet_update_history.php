@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="css/profile.css">
         <link rel="stylesheet" href="css/admin.css">
     <!-- Include the compiled Ratchet JS -->
-    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+    <script src="ratchet/js/ratchet.min.js"></script>
   
   </head>
   <body style=" font-family: 'KoHo', sans-serif; ">
@@ -112,7 +112,7 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
- <!--  <script src="ratchet/js/ratchet.min.js"></script> -->
+  <script src="ratchet/js/ratchet.min.js"></script>
   <script src="js/profile.js"></script>
         
   <script>
