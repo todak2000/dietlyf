@@ -50,8 +50,7 @@
          $resulta = mysqli_query($con,$querya) or die(mysqli_error());
          if($resulta){
           $rowsa = mysqli_num_rows($resulta);
-        } else{
-        
+        } 
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
@@ -173,7 +172,7 @@
         <span class="span">Log out</span>
       </a>
     </nav>
-   <?php } ?>
+ 
   <script src="js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="ratchet/js/ratchet.min.js"></script>
