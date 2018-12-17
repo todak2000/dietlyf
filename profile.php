@@ -46,11 +46,11 @@
                 $Image = $row['image'];
             }
          // diet update messages QUERY
-         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
-         $resulta = mysqli_query($con,$querya) or die(mysqli_error());
-         if($resulta){
-          $rowsa = mysqli_num_rows($resulta);
-        } 
+        //  $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
+        //  $resulta = mysqli_query($con,$querya) or die(mysqli_error());
+        //  if($resulta){
+        //   $rowsa = mysqli_num_rows($resulta);
+        // } 
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
