@@ -35,8 +35,8 @@
                 $result = mysqli_query($con,$query) or die(mysql_error());
                 $rows = mysqli_num_rows($result);
 
-                $query1= "UPDATE  diet_update SET seen='0' where email='$email'";
-                $result1 = mysqli_query($con,$query1) or die(mysql_error());
+                // $query1= "UPDATE  diet_update SET seen='0' where email='$email'";
+                // $result1 = mysqli_query($con,$query1) or die(mysql_error());
                 
 
                 
