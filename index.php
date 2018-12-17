@@ -64,32 +64,32 @@
         <p>Already a Member, Please <a style='color:#979b1b;' href='login.php'>Login</a></p>
     </div>
     <?php
-			require('auth/db.php');
-		    // If form submitted, insert values into the database.
-		    if (isset($_REQUEST['username'])){
-				$username = stripslashes($_REQUEST['username']); // removes backslashes
-				$username = mysqli_real_escape_string($con,$username); //escapes special characters in a string
+      require('auth/db.php');
+        // If form submitted, insert values into the database.
+        if (isset($_REQUEST['username'])){
+        $username = stripslashes($_REQUEST['username']); // removes backslashes
+        $username = mysqli_real_escape_string($con,$username); //escapes special characters in a string
 
-				$firstname = stripslashes($_REQUEST['firstname']);
-				$firstname = mysqli_real_escape_string($con,$firstname);
+        $firstname = stripslashes($_REQUEST['firstname']);
+        $firstname = mysqli_real_escape_string($con,$firstname);
 
-				$lastname = stripslashes($_REQUEST['lastname']);
-				$lastname = mysqli_real_escape_string($con,$lastname);
+        $lastname = stripslashes($_REQUEST['lastname']);
+        $lastname = mysqli_real_escape_string($con,$lastname);
 
-				$email = stripslashes($_REQUEST['email']);
-				$email = mysqli_real_escape_string($con,$email);
+        $email = stripslashes($_REQUEST['email']);
+        $email = mysqli_real_escape_string($con,$email);
 
-				$phoneno = stripslashes($_REQUEST['phoneno']);
-				$phoneno = mysqli_real_escape_string($con,$phoneno);
+        $phoneno = stripslashes($_REQUEST['phoneno']);
+        $phoneno = mysqli_real_escape_string($con,$phoneno);
 
-				$age = stripslashes($_REQUEST['age']);
-				$age = mysqli_real_escape_string($con,$age);
+        $age = stripslashes($_REQUEST['age']);
+        $age = mysqli_real_escape_string($con,$age);
 
-				$password = stripslashes($_REQUEST['password']);
-				$password = mysqli_real_escape_string($con,$password);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con,$password);
 
-				$gender = stripslashes($_REQUEST['gender']);
-				$gender = mysqli_real_escape_string($con,$gender);
+        $gender = stripslashes($_REQUEST['gender']);
+        $gender = mysqli_real_escape_string($con,$gender);
 
 
 
@@ -113,6 +113,9 @@
                           
                             $result = mysqli_query($con,$query);
                             if($result){
+
+                              $query02 = "INSERT into `diet_update` (email,message, seen) VALUES ('$email','Welcome to DiabCare! Your health is our priority. ', '1')";
+                              $result02 = mysqli_query($con,$query02);
                                 // echo "Success (200). Registration Successful";
                                 echo "<div align='center' class='formaa col-xs-12' style='margin-top: 0;color:#ccc; background-color:#23232390; border-radius:10px; top:-150px;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>You are registered successfully.</h3><br/>Click here to <a style='color:#979b1b;' href='login.php'>Login</a></div>";
 
@@ -122,6 +125,6 @@
     } 
     
 }
-		?>
+    ?>
   </body>
 </html>
