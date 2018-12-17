@@ -20,13 +20,31 @@
                 $bsl = $row['bsl'];
                 $Height = $row['height'];
                 $Weight = $row['weight'];
-                $Image = $row['image'];
+                
             }
-         // diet update messages QUERY
-         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
-         $resulta = mysqli_query($con,$querya) or die(mysqli_error());
-         $rowsa = mysqli_num_rows($resulta);
-            // var_dump($rowsa);
+            $fullname = $Firstname." ".$Lastname;
+            $day = date("Y/m/d") ;
+            date_default_timezone_set("Africa/Lagos");
+            $time=  date("h:i:sa");
+   
+
+         if (isset($_POST['patient_chat'])){
+        
+
+          $message = stripslashes($_REQUEST['patient_message']);
+          $message = mysqli_real_escape_string($con,$message);
+                  
+                  $query = "INSERT into `chat_history` (user_id,patient,email,patient_message,day,time) VALUES ('$id','$fullname','$Email','$message', '$day','$time')";
+          $result = mysqli_query($con,$query)or die(mysqli_error());;
+          var_dump($result);
+         
+          while($rows = mysqli_fetch_array($result)){
+            $sender_message = $rows['patient_message'];
+            
+            
+          }
+
+           }   // var_dump($rowsa);
             ?>
 
 <!DOCTYPE html>
@@ -43,38 +61,41 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Include the compiled Ratchet CSS -->
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="ratchet/css/ratchet.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet">
-        <link rel="stylesheet" href="css/profile.css">
-        <link rel="stylesheet" href="css/chat.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/chat.css">
         
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+         -->
     <!-- Include the compiled Ratchet JS -->
-    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+    <script src="ratchet/js/ratchet.min.js"></script>
+    </style>
   </head>
   <body style=" font-family: 'KoHo', sans-serif;">
   <header class="bar bar-nav">
       <h1 class="title">DiabCare Chat</h1>
-      <span class="icon icon-bars"></span>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
   <div class="container clearfix">
    
-    <div class="chat">
-      <div class="chat-header clearfix">
+    <div class="chat" style="width: 100%;float: left;height: 75vh;background: #F2F5F8;border-top-right-radius: 5px;border-bottom-right-radius: 5px;margin-top: 20px;color: #434651;">
+      <div class="chat-header clearfix" style="padding: 10px;border-bottom: 2px solid #1C304E;">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
         
         <div class="chat-about">
-          <div class="chat-with">Chat with Vincent Porter</div>
-          <div class="chat-num-messages">already 1 902 messages</div>
+          <div class="chat-with">Chat with Admin</div>
+          <!-- <div class="chat-num-messages">already 1 902 messages</div> -->
         </div>
-        <i class="fa fa-star"></i>
+        <i class="fa fa-star" style="float: right;color: #D8DADF;font-size: 20px;margin-top: 12px;"></i>
       </div> <!-- end chat-header -->
       
-      <div class="chat-history">
+      <div class="chat-history" style="    padding: 30px 30px 20px;border-bottom: 2px solid #1C304E;overflow-y: scroll;height: 40vh; background-color: #e5e3ea;">
         <ul>
-          <li class="clearfix">
+          <!-- <li class="clearfix">
             <div class="message-data align-right">
               <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
               <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
@@ -115,8 +136,8 @@
               Actually everything was fine. I'm very excited to show this to our team.
             </div>
           </li>
-          
-          <li>
+           -->
+          <!-- <li>
             <div class="message-data">
               <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
               <span class="message-data-time">10:31 AM, Today</span>
@@ -124,34 +145,35 @@
             <i class="fa fa-circle online"></i>
             <i class="fa fa-circle online" style="color: #AED2A6"></i>
             <i class="fa fa-circle online" style="color:#DAE9DA"></i>
-          </li>
+          </li> -->
           
         </ul>
         
       </div> <!-- end chat-history -->
-      
-      <div class="chat-message clearfix">
-        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
-                
-        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-        <i class="fa fa-file-image-o"></i>
-        
-        <button class="btn" style="background-color:green; width:60px; height:40px; border-radius:20px;"><i style="color:#fff;" class="fa fa-paper-plane"></i></button>
+      <!-- <form> -->
+        <div class="chat-message clearfix">
+          <textarea name="patient_message" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+                  
+          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-file-image-o"></i>
+             <button type="submit" name="patient_chat" class="btn" style="background-color:green; width:60px; height:40px; border-radius:20px;"><i style="color:#fff;" class="fa fa-paper-plane"></i></button>
 
-      </div> <!-- end chat-message -->
-      
+        </div> <!-- end chat-message -->
+      <!-- </form> -->
     </div> <!-- end chat -->
     
   </div> <!-- end container -->
-
+ 
 <script id="message-template" type="text/x-handlebars-template">
+    
   <li class="clearfix">
     <div class="message-data align-right">
       <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
-      <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+      <span class="message-data-name"> "<?php echo $Firstname ?> <?php echo $Lastname ?>"</span> <i class="fa fa-circle me"></i>
     </div>
     <div class="message other-message float-right">
-      {{messageOutput}}
+      {{messageOutput}} 
+      <!-- "<?php echo $sender_message; ?>" -->
     </div>
   </li>
 </script>
@@ -159,7 +181,7 @@
 <script id="message-response-template" type="text/x-handlebars-template">
   <li>
     <div class="message-data">
-      <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+      <span class="message-data-name"><i class="fa fa-circle online"></i> Admin</span>
       <span class="message-data-time">{{time}}, Today</span>
     </div>
     <div class="message my-message">
@@ -169,12 +191,12 @@
 </script>
     <!-- BOTTOM NAVS -->
     <nav class="bar bar-tab">
-      <a class="tab-item  href="profile.php"">
+      <a class="tab-item"  href= "profile.php">
       <span class="span" style="color:transparent">1</span> 
         <i class="fa fa-user-o"></i>
         <span class="span">Profile</span>
       </a>
-      <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <a class="tab-item" name="dieting"   href="diet_update_history.php" style="text-decoration: transparent;">
       <span class="span" id="notification" style="background-color:transparent;width:20px; height:20px; margin-left:auto; margin-right:auto;color:transparent; border-radius:50%;"><?php echo $rowsa; ?></span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
@@ -203,7 +225,6 @@
   <script src="ratchet/js/ratchet.min.js"></script>
   <script src="js/profile.js"></script>
      <script src="js/chat.js"></script>  
-
-     
+    
   </body>
 </html>

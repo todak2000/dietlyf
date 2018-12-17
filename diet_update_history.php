@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="css/admin.css">
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+  
   </head>
   <body style=" font-family: 'KoHo', sans-serif; ">
   <?php
@@ -45,7 +46,7 @@
 
       <header class="bar bar-nav">
       <h1 class="title">Diet Updates</h1>
-      <span class="icon icon-bars"></span>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
 <!-- end of header -->
                 <div style="margin-top:15%; overflow-y:auto; height:80%; margin-left:5%; margin-right:5%;">
@@ -63,7 +64,8 @@
                                  $time3 = $time1[1];
                                 
                                 echo'
-                                <button class="accordion">From Admin <footer class="blockquote-footer pull-right">'.$time2.'</footer></button>
+                                <button class="accordion"  style="background-color: #eee;color: #444;cursor: pointer;padding: 18px;border-radius: 15px 15px 0 0;width: 100%;border: none;text-align: left;outline: none;font-size: 15px;transition: 0.4s;
+                                ">From Admin <footer class="blockquote-footer pull-right">'.$time2.'</footer></button>
                                 <div class="panel">
                                   <p class="reduce">'.$row['message'].'<br><cite title="Source Title pull-right btn btn-info">'.$time3.'</cite></p>                    
                                 </div>
@@ -72,7 +74,7 @@
                                 ';
                          }     
                         ?>
-  
+      
                 </div>
 
 <!-- <a href="profile.php" ><button class="btn" style="margin: 0 42%; height:30px; width:16%;" align="center">Back</button></a> -->
@@ -94,10 +96,10 @@
       <i class="fa fa-calendar"></i>
         <span class="span">Apointment</span>
       </a>
-      <a class="tab-item remove" href="chat.php"  style="text-decoration: transparent;">
+      <a class="tab-item remove" href="chat.php" onclick="window.location.reload(true)"  style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
-      <i class="fa fa-user-md"></i>
-        <span class="span">Chat</span>
+      <i class="fa fa-user-md" onclick="window.location.reload(true)"></i>
+        <span class="span" >Chat</span>
       </a>
       <a class="tab-item remove" href="login.php" style="text-decoration: transparent;">
       <span class="span" style="color:transparent">1</span> 
@@ -128,6 +130,7 @@
 
       <script>
             // FAQ SLIDE TOGGLE
+         
             var acc = document.getElementsByClassName("accordion");
             var i;
 
@@ -142,7 +145,11 @@
                 } 
             });
             }
+         
+  
+  
 
+     
         </script>
 
   </body>

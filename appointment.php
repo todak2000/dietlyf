@@ -11,7 +11,7 @@
 
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
+    <link href="ratchet/css/ratchet.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
         <link rel="stylesheet" href="css/reg.css">
@@ -97,7 +97,7 @@
                 ?>
     <header class="bar bar-nav">
       <h1 class="title">Book an Appointment!</h1>
-      <span class="icon icon-bars"></span>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
     <!-- <button class="btn btn-link btn-nav pull-center">
           <img src="img/diet2.svg" >
@@ -178,7 +178,15 @@
       </a>
     </nav>
     <?php } ?>
-    
+    <script>
+      
+      $(document).ready(function(){
+       
+          windows.location.reload(true);
+  
+      });
+      </script>
+     
   </body>
 </html>
 

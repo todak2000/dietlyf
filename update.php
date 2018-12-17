@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dietlyf Registration </title>
+    <title>Dietlyf Update </title>
 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -13,14 +13,16 @@
 
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link href="ratchet/css/ratchet.min.css" rel="stylesheet"> -->
+    <link href="ratchet/css/ratchet.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="css/index.css">
+        <!-- <link rel="stylesheet" href="css/index.css"> -->
+        <link rel="stylesheet" href="css/reg.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   </head>
-  <body class="container" style="overflow-y: hidden;">
+  <body class="container" style="overflow-y: hidden; background-color:#428bca4d;">
     <?php
 			require('auth/auth.php');
             require('auth/db.php');
@@ -73,33 +75,33 @@
 		?>
 
     <!-- Make sure all your bars are the first things in your <body> -->
-      <header class="bar bar-nav">
-        <button class="btn btn-link btn-nav pull-center">
-          <img src="img/diet2.svg" ></button>
-      </header>
+    <header class="bar bar-nav">
+      <h1 class="title">Update Info</h1>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
+    </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content">
-    <p class='jive'><?php echo $firstName; ?> !<br>Please Update your details</p>
+    <div class="contenta" style=" margin:15% 5%; height:80%;">
+    <p class='jive' style="text-align:center; font-size:18px;"><?php echo $firstName; ?> !<br>Please Update your details</p>
       <form name="registration" action="" method="post">
         <div class="row">
         <div class="col-xs-12">
               <div class="row">
                 <div class="col-xs-7" style="text-align:left; padding-top:10px;">height (cm):</div>
-                <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent;color:#fff;" type="number" name="height" placeholder="" required class="form-control iip"/></div>
+                <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: 0; margin-top: 5px; background-color: #ccc;color:#000;" type="number" name="height" placeholder="" required class="form-control iip"/></div>
               </div>
             </div>
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Body Mass Index:</div>
-                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="bmi" placeholder="" required class="form-control iip"/></div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: 0; margin-top: 5px; background-color: #ccc; color:#000;" type="number" name="bmi" placeholder="" required class="form-control iip"/></div>
               </div>
             </div>
 
             <div class="col-xs-12">
              <div class="row">
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Blood Sugar Level (mg/dL):</div>
-                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="bsl" placeholder="" required class="form-control iip"/> </div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: 0; margin-top: 5px; background-color: #ccc; color:#000;" type="number" name="bsl" placeholder="" required class="form-control iip"/> </div>
               </div>
             </div>
         </div>
@@ -108,17 +110,45 @@
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Weight (kg):</div>
-                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="weight" placeholder="" required class="form-control iip"/> </div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: #ccc; color:#000;" type="number" name="weight" placeholder="" required class="form-control iip"/> </div>
 
               </div>
             </div>
         </div>  
+        
           
-          
-       <input type="submit" name="submit" value="Add latest Details" class="form-control"/> 
+       <input type="submit" name="submit" value="Add latest Details" class="form-control btn-info"/> 
         </form>
         <!-- <p> <a style='color:#979b1b;' href='profile.php'>Update details</a></p> -->
     </div>
+    <!-- BOTTOM NAVS -->
+    <nav class="bar bar-tab">
+      <a class="tab-item active" href="profile.php">
+      <span class="span" style="color:transparent">1</span> 
+        <i class="fa fa-user-o"></i>
+        <span class="span">Profile</span>
+      </a>
+      <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <span class="span" id="notification" style="background-color:red;width:20px; height:20px; margin-left:auto; margin-right:auto; border-radius:50%;"></span> 
+      <i class="fa fa-gift" id="diet"></i>
+        <span class="span">Diet Update</span> 
+      </a>
+      <a class="tab-item" href="appointment.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-calendar"></i>
+        <span class="span">Apointment</span>
+      </a>
+      <a class="tab-item" href="chat.php"  style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-user-md"></i>
+        <span class="span">Chat</span>
+      </a>
+      <a class="tab-item" id="dsa" href="login.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-power-off"></i>
+        <span class="span">Log out</span>
+      </a>
+    </nav>
     <?php } ?>
   </body>
 </html>

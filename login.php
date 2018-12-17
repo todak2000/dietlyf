@@ -19,17 +19,14 @@
     <!-- Include the compiled Ratchet JS -->
     <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
   </head>
-  <body class="container" style="margin-top:10%;">
+  <body class="container" style="padding:0" >
   
-  <header class="bar bar-nav">
-        <button class="btn btn-link btn-nav pull-center">
-          <img src="img/diet2.svg" ></button>
-      </header>
 
-    <div class="content">
+    <div class="contenta" style=" background: -webkit-linear-gradient( #1C304E, #365899, #1C304E);  padding:5% 5% 0% 5%; height:100%;">
+    <img src="img/diet2.svg"></button>
 
-          <p class="jive">Log in</p>
-      </div>
+          <p class="jive" style="text-align:center; font-size:18px;">Log in</p>
+     
 
       <form name="registration" action="" method="post">
         <div class="row">
@@ -71,13 +68,21 @@
 			//Checking is user existing in the database or not
 		        $query = "SELECT * FROM user WHERE email='".$email."' and password='".md5($password)."' ";
 				
-				$result = mysqli_query($con,$query) or die(mysql_error());
+				$result = mysqli_query($con,$query) or die(mysqli_error());
 				$rows = mysqli_num_rows($result);
 				if($rows==1){
                    
           $_SESSION['email'] = $email;
+          while($row = mysqli_fetch_array($result)){
+            if ($row['bmi'] == 0){
+              header("Location: info.php");// Redirect user to index.php
+            }
+            else{
+              header("Location: profile.php");// Redirect user to index.php
+            }
+          }
 
-        header("Location: profile.php");// Redirect user to index.php
+        // header("Location: profile.php");// Redirect user to index.php
               }else{
                       echo "<div align='center' class='formaa col-xs-12' style='margin-top: 0;color:#ccc; background-color:#23232390; border-radius:10px; top:-150px;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9786;</span><br>Username/password is incorrect.</h3><br/><a style='color:#979b1b;' id='close' href='login.php'>Close</a></div>";
 

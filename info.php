@@ -49,6 +49,7 @@
                 $bsl = $row['bsl'];
                 $Height = $row['height'];
                 $Weight = $row['weight'];
+                
                
                
             }
@@ -64,6 +65,8 @@
                 $bsl = mysqli_real_escape_string($con,$bsl);
                 $weight = stripslashes($_REQUEST['weight']);
                 $weight = mysqli_real_escape_string($con,$weight);
+                $insulin = stripslashes($_REQUEST['insulin_type']);
+                $insulin = mysqli_real_escape_string($con,$insulin);
                 
 
             //     $sql    = "SELECT * FROM usermaster WHERE User_name=''";
@@ -90,8 +93,10 @@
                 $result3 = mysqli_query($con,$update3)or die(mysqli_error());
                 $update4= "UPDATE user SET bsl='$bsl' where email='$email'";
                 $result4 = mysqli_query($con,$update4)or die(mysqli_error());
+                $update5= "UPDATE user SET insulin ='$insulin' where email='$email'";
+                $result5 = mysqli_query($con,$update5)or die(mysqli_error());
                  //var_dump($update);
-                if($result4 and $result1 and $result2 and $result3){
+                if($result4 and $result1 and $result2 and $result3 and $result5){
                     
                     header("Location: profile.php");// Redirect user to index.php
 
@@ -142,26 +147,23 @@
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-xs-7" style="text-align:left; padding-top:10px;">Weight (kg):</div>
-                    <div class="col-xs-5">
-                    <select class="round form-control"  name="weight" style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" placeholder="">
-                    <option style=" color:#232323; background-color:#d9edf7;">110</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">120</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">130</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">140</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">150</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">160</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">170</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">180</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">190</option>
-                    <option style=" color:#232323; background-color:#d9edf7;">200</option>
-                    
-                </select>
-                <!-- <span class="input-group-text" id="basic-addon2"><img style="width:20px; height:20px; margin-left:-25px; padding-top: 10px;" src="css/down.svg"></span> -->
-                     </div>
+                    <div class="col-xs-5"><input style="border-left:0; border-right: 0; border-top: o; margin-top: 5px; background-color: transparent; color:#fff;" type="number" name="weight" placeholder="" required class="form-control iip"/> </div>
               </div>
             </div>
         </div>  
-          
+        <div class="row" style="margin-top:10px; margin-bottom: 20px;">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:left; padding-top:10px;">Type of Diabetes:</div>
+                    <div class="col-xs-5"> 
+                        <select class="round form-control"  name="insulin_type" style="border-left:0; border-right: 0; border-top: 0; margin-top: 5px; background-color: #ccc; color:#000;" placeholder="">
+                            <option style=" color:#232323; background-color:#ccc;">With Insuline</option>
+                            <option style=" color:#232323; background-color:#ccc;">Without Insuline</option>
+                        </select>
+                    </div>
+              </div>
+            </div>
+        </div>
        <input type="submit" name="next" value="Next" class="form-control" class="button" /> 
         </form>
         

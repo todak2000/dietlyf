@@ -42,6 +42,7 @@
                             <th scope='col'>Phone No</th>
                             <th scope='col'>Age</th>
                             <th scope='col'>Gender</th>
+                            <th scope='col'>Type of Diabetes</th>
                             <th scope='col'>Health details</th>
                            
                             </tr>
@@ -59,6 +60,7 @@
                         echo "<td>" . $row['phoneNo'] . "</td>";
                         echo "<td>" . $row['age']. "</td>";
                         echo "<td>" . $row['gender']. "</td>";
+                        echo "<td>" . $row['insulin']. "</td>";
                         echo "<td> <input type='button' name='view' value='view' id=" . $row['id']. " class='view_data btn btn-default btn-xs' style='width:100px; background-color:#ffc655; margin:2px;'><input type='button' name='message' value='Message' id=" . $row['id']. " class='message_data btn btn-info btn-xs' style='width:100px; background-color:green; margin:2px;'></td>";
                     
                         }
@@ -78,7 +80,7 @@
 
       <header class="bar bar-nav">
       <h1 class="title">Patients Table</h1>
-      <a href="profile.php"><span class="icon icon-bars"></span></a>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
 <!-- end of header -->
 <a href="admin.php" ><button class="btn" type="submit" style="margin: 0 45%; height:30px; width:10%;" align="center">Back</button></a>

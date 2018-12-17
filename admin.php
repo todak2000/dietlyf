@@ -60,7 +60,7 @@
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Admin</h1>
-      <<span class="icon icon-bars"></span>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
 <!-- end of header -->
 <!-- profile  -->

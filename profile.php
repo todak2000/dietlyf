@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet">
         <link rel="stylesheet" href="css/profile.css">
     <!-- Include the compiled Ratchet JS -->
-    <!-- <script src="ratchet/js/ratchet.min.js"></script> -->
+    <script src="ratchet/js/ratchet.min.js"></script>
   </head>
   <body style=" font-family: 'KoHo', sans-serif;">
   <?php
@@ -48,12 +48,14 @@
          // diet update messages QUERY
          $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
          $resulta = mysqli_query($con,$querya) or die(mysqli_error());
-         $rowsa = mysqli_num_rows($resulta);
-            // var_dump($rowsa);
+         if($resulta){
+          $rowsa = mysqli_num_rows($resulta);
+        } else{
+        
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
-      <span class="icon icon-bars"></span>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
 <!-- end of header -->
 <!-- profile  -->
@@ -138,13 +140,14 @@
           </tbody>
         </table>
         <a href="update.php"> <input type="submit" name="edit" value="Update Details" class="form-control" class="button" /></a>
+        <a href="ieat.php"> <input type="submit" name="ieat" value="i-eat" class="form-control" class="button" style="margin-top:10%; background-color:green; color:#ccc;"/></a>
         <!-- <a class="btn btn-default pull-right form-control" style=" background-color:#eee;" name="update" href="#">Update Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a> -->
     </span>
   </div>
   </form>
 <!-- BOTTOM NAVS -->
     <nav class="bar bar-tab">
-      <a class="tab-item active href="profile.php"">
+      <a class="tab-item active" href="profile.php">
       <span class="span" style="color:transparent">1</span> 
         <i class="fa fa-user-o"></i>
         <span class="span">Profile</span>
@@ -170,7 +173,7 @@
         <span class="span">Log out</span>
       </a>
     </nav>
-   
+   <?php } ?>
   <script src="js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="ratchet/js/ratchet.min.js"></script>
@@ -190,7 +193,7 @@
         //   $("#notification").css("color", "#fff");
         // }
        
-        });
+         });
     
 
       </script>
