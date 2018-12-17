@@ -41,9 +41,9 @@
                 $Gender = $row['gender'];
                 $bmi = $row['bmi'];
                 $bsl = $row['bsl'];
-                $Height = $row['height'];
-                $Weight = $row['weight'];
-                $Image = $row['image'];
+                // $Height = $row['height'];
+                // $Weight = $row['weight'];
+                // $Image = $row['image'];
             }
          // diet update messages QUERY
         //  $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
@@ -120,14 +120,14 @@
     <table class="table table-striped">
           
           <tbody>
-            <tr>
+            <!-- <tr>
               <th scope="row">Height</th>
               <td><?php echo $Height; ?></td>
             </tr>
             <tr>
               <th scope="row">Weight</th>
               <td><?php echo $Weight; ?></td>
-            </tr>
+            </tr> -->
             <tr>
               <th scope="row">Body Mass Index (BMI)</th>
               <td><?php echo $bmi; ?></td>
