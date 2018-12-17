@@ -46,12 +46,14 @@
                 // $Image = $row['image'];
             }
          // diet update messages QUERY
-         $querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
-         $resulta = mysqli_query($con,$querya) or die(mysqli_error());
-          $rowsa = mysqli_num_rows($resulta);
-          if ($rowsa){
-
-
+            if($result){
+            	$querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
+         		$resulta = mysqli_query($con,$querya) or die(mysqli_error());
+          		$rowsa = mysqli_num_rows($resulta);
+            }
+         
+         
+       
             ?>
       <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
@@ -154,11 +156,11 @@
       </a>
       <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
       <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%;">
-      	<?php 
-      echo $rowsa;
+      <!-- 	<?php 
       
-        
-      }else{echo "12";} ?> 
+      if (!$rowsa){
+        echo "12";
+      }else{echo $rowsa;} ?> -->
       </span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
