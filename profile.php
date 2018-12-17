@@ -46,16 +46,15 @@
                 // $Image = $row['image'];
             }
          // diet update messages QUERY
-            if($result){
+            
             	$querya = "SELECT * FROM `diet_update` WHERE email = '$Email' AND seen = '1' order by id desc";
          		$resulta = mysqli_query($con,$querya) or die(mysqli_error());
           		$rowsa = mysqli_num_rows($resulta);
-            }
-         
-         
-       
-            ?>
-      <header class="bar bar-nav">
+       			if($rowsa){
+
+       				echo '
+
+       				 <header class="bar bar-nav">
       <h1 class="title">Profile</h1>
       <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
     </header>
@@ -155,12 +154,8 @@
         <span class="span">Profile</span>
       </a>
       <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
-      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%;">
-      <!-- 	<?php 
-      
-      if (!$rowsa){
-        echo "12";
-      }else{echo $rowsa;} ?> -->
+      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%;">'
+      . echo $rowsa;}.' 
       </span> 
       <i class="fa fa-gift" id="diet"></i>
         <span class="span">Diet Update</span> 
@@ -181,6 +176,140 @@
         <span class="span">Log out</span>
       </a>
     </nav>
+
+       				',
+       			}
+         
+         else{
+         	'
+         	<header class="bar bar-nav">
+      <h1 class="title">Profile</h1>
+      <span class="icon icon-refresh" onclick="window.location.reload(true)"></span>
+    </header>
+<!-- end of header -->
+<!-- profile  -->
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="col-xs-12 col-sm-12 bg">
+      <!-- <div class="img-circle pics"> -->
+        <!-- <img src="img/diet.svg"> -->
+        <img  class="pics" style="height:35%; border-radius:50%; margin-left:35%;width:30%" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+        <!-- <div style="width:80px; height:80px;"><?php echo $Image; ?> </div> -->
+      <!-- </div> -->
+      <h3 class="name"><?php echo $Firstname; ?> <?php echo $Lastname; ?> <br>
+        @<?php echo $Username; ?> 
+      </h3>
+      
+          <i class="fa fa-pencil-square-o" type="file"></i>
+          <input type="file" id="my_file" style="display: none;" name="image"/>
+      
+    </div>
+<!-- end of profile -->
+<!-- profile details -->
+  <div class="segmented-control">
+    <a class="control-item active" href="#item1mobile">
+      Basic Information
+    </a>
+    <a class="control-item" href="#item2mobile">
+      Health Information
+    </a>
+  </div>
+  <div class="card">
+    <span id="item1mobile" class="control-content active">
+        <!-- assigned dietrician
+        Age
+        BMI
+        Height
+        Weight-->
+        <table class="table table-striped">
+          
+          <tbody>
+            <tr>
+              <th scope="row">Email</th>
+              <td><?php echo $Email; ?></td>
+            </tr>
+            <tr>
+              <th scope="row">Phone Number</th>
+              <td><?php echo $Phone; ?></td>
+            </tr>
+            <tr>
+              <th scope="row">Age</th>
+              <td><?php echo $Age; ?></td>
+            </tr>
+            <tr>
+              <th scope="row" >Gender</th>
+              <td><?php echo $Gender; ?></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:10px; margin:auto; background-color:#232323; color:#ccc;" class="btn form-control">Please click on the Health Information tab to update</p>
+        <!-- <input type="submit" name="edit" value="Next" class="form-control" class="button" />  -->
+        <!-- <a class="btn  pull-right form-control" style=" background-color:#eee;" name="edit">Edit Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a> -->
+    </span>
+    <!-- HEALTH INFO SECTION -->
+    <span id="item2mobile" class="control-content">
+    <table class="table table-striped">
+          
+          <tbody>
+            <!-- <tr>
+              <th scope="row">Height</th>
+              <td><?php echo $Height; ?></td>
+            </tr>
+            <tr>
+              <th scope="row">Weight</th>
+              <td><?php echo $Weight; ?></td>
+            </tr> -->
+            <tr>
+              <th scope="row">Body Mass Index (BMI)</th>
+              <td><?php echo $bmi; ?></td>
+            </tr>
+            <tr>
+              <th scope="row">Blood Sugar Level (BSL)</th>
+              <td><?php echo $bsl; ?></td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="update.php"> <input type="submit" name="edit" value="Update Details" class="form-control" class="button" /></a>
+        <a href="ieat.php"> <input type="submit" name="ieat" value="i-eat" class="form-control" class="button" style="margin-top:10%; background-color:green; color:#ccc;"/></a>
+        <!-- <a class="btn btn-default pull-right form-control" style=" background-color:#eee;" name="update" href="#">Update Details &nbsp;&nbsp;<em class="fa fa-pencil"></em></a> -->
+    </span>
+  </div>
+  </form>
+<!-- BOTTOM NAVS -->
+    <nav class="bar bar-tab">
+      <a class="tab-item active" href="profile.php">
+      <span class="span" style="color:transparent">1</span> 
+        <i class="fa fa-user-o"></i>
+        <span class="span">Profile</span>
+      </a>
+      <a class="tab-item" name="dieting"  href="diet_update_history.php" style="text-decoration: transparent;">
+      <span class="span" id="notification" style="background-color:red;width:20px; margin-left:auto; margin-right:auto; border-radius:50%;">'
+      . echo '12'}.' 
+      </span> 
+      <i class="fa fa-gift" id="diet"></i>
+        <span class="span">Diet Update</span> 
+      </a>
+      <a class="tab-item" href="appointment.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-calendar"></i>
+        <span class="span">Apointment</span>
+      </a>
+      <a class="tab-item" href="chat.php"  style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-user-md"></i>
+        <span class="span">Chat</span>
+      </a>
+      <a class="tab-item" id="dsa" href="login.php" style="text-decoration: transparent;">
+      <span class="span" style="color:transparent">1</span> 
+      <i class="fa fa-power-off"></i>
+        <span class="span">Log out</span>
+      </a>
+    </nav>
+
+         	'
+         }
+       
+            ?>
+     
  
   <script src="js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
